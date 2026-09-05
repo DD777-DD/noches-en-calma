@@ -36,22 +36,23 @@ O Pixel só carrega depois do aceite no banner de privacidade. Com `metaPixelId`
 
 A página repassa `utm_*`, `fbclid`, `gclid` e `ttclid` ao checkout e monta o parâmetro `sck` da Hotmart no formato `origem|campanha|criativo|botão`. Assim o relatório da Hotmart mostra qual criativo e qual botão geraram cada venda, mesmo sem Pixel.
 
-## Publicar na Vercel + apontar o domínio da Hostinger
+## Publicação — já no ar
 
-1. **GitHub** — criar um repositório e subir esta pasta:
-   ```bash
-   git init && git add . && git commit -m "Landing page Noches en Calma"
-   git branch -M main && git remote add origin git@github.com:USUARIO/noches-en-calma.git && git push -u origin main
-   ```
-2. **Vercel** — *Add New → Project → Import* o repositório. Framework: **Other**. Build command: vazio. Output directory: vazio (raiz). *Deploy*.
-3. **Domínio** — no projeto: *Settings → Domains → Add* `nochesencalma.online` e `www.nochesencalma.online`.
-4. **Hostinger** — em *Domínios → DNS/Nameservers → Gerenciar registros DNS*, apagar os registros A/CNAME antigos de `@` e `www` e criar:
+Site: **https://www.nochesencalma.online** · repositório `DD777-DD/noches-en-calma` conectado à Vercel.
+Todo `git push` na branch `main` publica automaticamente. Não há build: os arquivos vão como estão.
 
-   | Tipo | Nome | Valor | TTL |
-   |---|---|---|---|
-   | A | `@` | `76.76.21.21` | 3600 |
-   | CNAME | `www` | `cname.vercel-dns.com` | 3600 |
+```bash
+git add -A && git commit -m "mensagem" && git push
+```
 
-   Confirme os valores na tela da própria Vercel: ela mostra o alvo exato para a sua conta e avisa quando o DNS propagar (costuma levar de 5 minutos a algumas horas). O HTTPS é emitido sozinho.
+DNS na Hostinger: `A @ -> 216.198.79.1` e `CNAME www -> <valor único do projeto>.vercel-dns-017.com`
+(os antigos `76.76.21.21` e `cname.vercel-dns.com` continuam funcionando).
 
-5. **Depois de publicar**, testar no celular: anúncio → página → CTA → checkout com preço em MXN → pagamento → e-mail de acesso → área de membros.
+O apex redireciona 308 para o www. Para inverter, troque o domínio principal em Vercel → Settings → Domains.
+
+## Antes de comprar tráfego
+
+1. Testar a entrega: comprar, receber o e-mail e abrir os arquivos como aluno no Hotmart Club.
+2. Criar o Pixel no Gerenciador de Eventos e colar o ID em `window.NEC.metaPixelId`.
+3. Ligar a integração Hotmart -> Meta para a compra aprovada voltar como evento.
+4. Definir o orçamento diário.
