@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Noches en Calma — Exportador de criativos</title>
+<style>
+  :root{color-scheme:light}
+  *{box-sizing:border-box}
+  body{margin:0;background:#EFEBE3;color:#15303A;font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+  header{background:#0B1E25;color:#FBF8F2;padding:28px 24px}
+  header h1{font-family:Georgia,serif;font-weight:400;font-size:26px;margin:0 0 6px}
+  header p{margin:0;color:rgba(251,248,242,.66);font-size:14px;max-width:78ch}
+  header code{background:rgba(255,255,255,.09);padding:2px 6px;border-radius:4px}
+  main{padding:26px 24px 80px;max-width:1500px;margin:0 auto}
+  .bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:26px}
+  button{font:inherit;font-weight:600;border:0;border-radius:100px;padding:11px 20px;cursor:pointer;
+         background:#B8863F;color:#FFF9EE}
+  button.sec{background:#fff;color:#15303A;border:1px solid #D3C8B4;font-weight:500}
+  button:hover{filter:brightness(1.05)}
+  .grid{display:grid;gap:26px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+  .item{background:#fff;border:1px solid #D3C8B4;border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+  .item .cv{background:#0B1E25;display:grid;place-items:center;padding:14px}
+  .item canvas{width:100%;height:auto;display:block;border-radius:4px}
+  .meta{padding:14px 16px 16px;display:flex;flex-direction:column;gap:9px;flex:1}
+  .meta b{font-size:14.5px}
+  .meta span{font-size:12.5px;color:#5A7079}
+  .meta .row{display:flex;gap:8px;margin-top:auto;padding-top:4px}
+  .meta .row button{padding:8px 14px;font-size:12.5px;flex:1}
+  .note{background:#fff;border-left:3px solid #B8863F;padding:16px 20px;border-radius:0 10px 10px 0;margin:0 0 26px;font-size:14px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Noches en Calma — exportador de criativos</h1>
+  <p>Abra este arquivo no navegador (duplo clique) e clique em <b>Baixar PNG</b> em cada peça. Os arquivos saem no tamanho exato exigido pelo Meta Ads (1080×1350 para feed, 1080×1920 para stories/reels). O <b>SVG</b> serve para editar depois no Figma, Canva ou Illustrator.</p>
+</header>
+
+<main>
+  <div class="note">
+    <b>Antes de subir no Gerenciador de Anúncios:</b> nenhuma arte traz preço (o total muda por país no checkout da Hotmart) e nenhuma afirma que o espectador tem um problema de saúde — isso reduz o risco de reprovação na política de saúde/atributos pessoais do Meta. O texto do anúncio (copy, headline e CTA) está em <code>copy-anuncios.md</code>.
+  </div>
+
+  <div class="bar">
+    <button id="all">Baixar todos os PNG</button>
+    <button class="sec" id="allsvg">Baixar todos os SVG</button>
+  </div>
+
+  <div class="grid" id="grid"></div>
+</main>
+
+<script>
+/* ============================================================
+   PALETA / TIPOGRAFIA
+   ============================================================ */
+const INK   = '#0B1E25';
+const INK2  = '#12303A';
+const IVORY = '#FBF8F2';
+const GOLD  = '#C99B57';
+const GOLDS = '#E7CFA4';
+const SAGE  = '#8FB6A3';
+const SERIF = "Georgia, 'Times New Roman', serif";
+const SANS  = 'Arial, Helvetica, sans-serif';
+
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+/* linhas de texto empilhadas */
+function lines(arr, x, y, lh, attrs){
+  return arr.map((t,i)=>`<text x="${x}" y="${y + i*lh}" ${attrs}>${esc(t)}</text>`).join('');
+}
+
+/* moldura comum: fundo, arcos, marca, rodapé legal */
+function chrome(w, h, opts={}){
+  const pad = 88;
+  const top = opts.top ?? (h > 1500 ? 300 : 96);      /* zona segura de stories */
+  const bot = opts.bot ?? (h > 1500 ? 1600 : h - 96);
+  const cx = w * 0.92, cy = top - 40;
+  let arcs = '';
+  for (let r = 180; r <= 1000; r += 150){
+    arcs += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${SAGE}" stroke-opacity="0.13" stroke-width="1.5"/>`;
+  }
+  return {
+    pad, top, bot,
+    bg: `
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="0.35" y2="1">
+          <stop offset="0" stop-color="${INK}"/><stop offset="0.55" stop-color="${INK2}"/><stop offset="1" stop-color="#0D2229"/>
+        </linearGradient>
+        <radialGradient id="glow" cx="0.85" cy="0.08" r="0.7">
+          <stop offset="0" stop-color="${SAGE}" stop-opacity="0.13"/><stop offset="1" stop-color="${SAGE}" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="${w}" height="${h}" fill="url(#g)"/>
+      <rect width="${w}" height="${h}" fill="url(#glow)"/>
+      ${arcs}
+      <path d="M${cx-40} ${cy-120}a132 132 0 1 0 129 163 104 104 0 1 1-129-163Z" fill="${SAGE}" fill-opacity="0.30"/>`,
+    brand: `
+      <text x="${pad}" y="${top}" font-family="${SANS}" font-size="25" font-weight="700"
+            letter-spacing="7" fill="${IVORY}" fill-opacity="0.9">NOCHES EN CALMA</text>
+      <line x1="${pad}" y1="${top+30}" x2="${w-pad}" y2="${top+30}" stroke="${GOLD}" stroke-opacity="0.45" stroke-width="1.5"/>`,
+    legal: `
+      <text x="${w/2}" y="${bot-8}" text-anchor="middle" font-family="${SANS}" font-size="23"
+            fill="${IVORY}" fill-opacity="0.55">Material educativo sobre hábitos cotidianos.</text>
+      <text x="${w/2}" y="${bot+26}" text-anchor="middle" font-family="${SANS}" font-size="23"
+            fill="${IVORY}" fill-opacity="0.55">No diagnostica ni trata trastornos del sueño.</text>`
+  };
+}
+
+/* botão CTA */
+function cta(w, y, label, pad){
+  const bw = w - pad*2, bh = 104;
+  return `
+    <rect x="${pad}" y="${y}" width="${bw}" height="${bh}" rx="52" fill="${IVORY}"/>
+    <text x="${w/2}" y="${y + bh/2 + 13}" text-anchor="middle" font-family="${SANS}"
+          font-size="38" font-weight="700" fill="${INK}">${esc(label)}</text>`;
+}
+
+/* ============================================================
+   CONCEITOS
+   ============================================================ */
+
+/* A · IDENTIFICAÇÃO — observação em terceira pessoa, sem atribuir condição ao espectador */
+function A(w, h){
+  const c = chrome(w, h);
+  const p = c.pad;
+  const big = h > 1500 ? 96 : 88, lh = h > 1500 ? 112 : 102;
+  const y0 = c.top + (h > 1500 ? 210 : 190);
+  return c.bg + c.brand + `
+    <text x="${p}" y="${y0 - 62}" font-family="${SANS}" font-size="25" font-weight="700"
+          letter-spacing="6" fill="${GOLD}">HAY NOCHES ASÍ</text>
+    ${lines(['El cuerpo se','acuesta y la','cabeza sigue','trabajando.'], p, y0 + big*0.78, lh,
+      `font-family="${SERIF}" font-size="${big}" fill="${IVORY}"`)}
+    <line x1="${p}" y1="${y0 + big*0.78 + lh*3 + 62}" x2="${w-p}" y2="${y0 + big*0.78 + lh*3 + 62}"
+          stroke="${GOLD}" stroke-opacity="0.5" stroke-width="1.5"/>
+    ${lines(['La noche empieza antes de acostarte.','Un plan personal para esta noche','y siete días para practicarlo.'],
+      p, y0 + big*0.78 + lh*3 + 132, 52, `font-family="${SANS}" font-size="37" fill="${IVORY}" fill-opacity="0.86"`)}
+    ${cta(w, c.bot - 220, 'Conoce Noches en Calma', p)}
+    ${c.legal}`;
+}
+
+/* B · MECANISMO — a sequência que transforma consejo em ação */
+function B(w, h){
+  const c = chrome(w, h);
+  const p = c.pad;
+  const big = h > 1500 ? 92 : 84, lh = h > 1500 ? 106 : 98;
+  const y0 = c.top + (h > 1500 ? 190 : 165);
+  const cardsY = y0 + big*0.78 + lh*1 + 110;
+  const cw = w - p*2, ch = 118, gap = 22;
+  const steps = [
+    ['1', 'ELEGIR',   'una prioridad, no quince consejos'],
+    ['2', 'PREPARAR', 'una acción, un momento, un lugar'],
+    ['3', 'REVISAR',  'mañana: ¿lo hice? ¿qué ajusto?']
+  ];
+  const cards = steps.map((s,i)=>{
+    const y = cardsY + i*(ch+gap);
+    return `
+      <rect x="${p}" y="${y}" width="${cw}" height="${ch}" rx="16" fill="${IVORY}" fill-opacity="0.055"
+            stroke="${GOLDS}" stroke-opacity="0.26" stroke-width="1.5"/>
+      <text x="${p+34}" y="${y+76}" font-family="${SERIF}" font-size="52" fill="${GOLDS}">${s[0]}</text>
+      <text x="${p+96}" y="${y+52}" font-family="${SANS}" font-size="31" font-weight="700"
+            letter-spacing="4" fill="${IVORY}">${s[1]}</text>
+      <text x="${p+96}" y="${y+92}" font-family="${SANS}" font-size="29" fill="${IVORY}" fill-opacity="0.66">${esc(s[2])}</text>`;
+  }).join('');
+  return c.bg + c.brand + `
+    <text x="${p}" y="${y0 - 54}" font-family="${SANS}" font-size="25" font-weight="700"
+          letter-spacing="6" fill="${GOLD}">CÓMO FUNCIONA</text>
+    ${lines(['Una noche.','Una prioridad.'], p, y0 + big*0.78, lh,
+      `font-family="${SERIF}" font-size="${big}" fill="${IVORY}"`)}
+    ${cards}
+    <text x="${p}" y="${cardsY + 3*(ch+gap) + 56}" font-family="${SANS}" font-size="33"
+          fill="${IVORY}" fill-opacity="0.8">Un sistema educativo de 7 días, en español.</text>
+    ${cta(w, c.bot - 220, 'Mira cómo funciona', p)}
+    ${c.legal}`;
+}
+
+/* C · DEMONSTRAÇÃO — a ferramenta real, preenchida */
+function C(w, h){
+  const c = chrome(w, h);
+  const p = c.pad;
+  const big = h > 1500 ? 90 : 82, lh = h > 1500 ? 104 : 96;
+  const y0 = c.top + (h > 1500 ? 180 : 155);
+  const cardY = y0 + big*0.78 + lh + 96;
+  const cw = w - p*2;
+  const rows = [
+    ['PRIORIDAD',  'Cerrar los pendientes del día'],
+    ['ACCIÓN',     'Escribir 3 líneas en una hoja'],
+    ['CUÁNDO',     'Al cerrar la laptop, en la mesa'],
+    ['SI NO PUEDO','Una sola línea: el primer paso']
+  ];
+  const rh = 104, headH = 96;
+  const cardH = headH + rows.length*rh + 62;
+  const rowsSvg = rows.map((r,i)=>{
+    const y = cardY + headH + i*rh;
+    return `
+      ${i ? `<line x1="${p+34}" y1="${y}" x2="${p+cw-34}" y2="${y}" stroke="#E6DECC" stroke-width="1.5"/>` : ''}
+      <text x="${p+34}" y="${y+40}" font-family="${SANS}" font-size="23" font-weight="700"
+            letter-spacing="4" fill="${'#B8863F'}">${r[0]}</text>
+      <text x="${p+34}" y="${y+82}" font-family="${SANS}" font-size="33" fill="#15303A">${esc(r[1])}</text>`;
+  }).join('');
+  return c.bg + c.brand + `
+    <text x="${p}" y="${y0 - 54}" font-family="${SANS}" font-size="25" font-weight="700"
+          letter-spacing="6" fill="${GOLD}">EJEMPLO DE USO</text>
+    ${lines(['Así se ve un plan','para esta noche.'], p, y0 + big*0.78, lh,
+      `font-family="${SERIF}" font-size="${big}" fill="${IVORY}"`)}
+    <rect x="${p}" y="${cardY}" width="${cw}" height="${cardH}" rx="22" fill="${IVORY}"/>
+    <rect x="${p}" y="${cardY}" width="${cw}" height="${headH}" rx="22" fill="${INK2}"/>
+    <rect x="${p}" y="${cardY+headH-24}" width="${cw}" height="24" fill="${INK2}"/>
+    <text x="${p+34}" y="${cardY+60}" font-family="${SANS}" font-size="27" font-weight="700"
+          letter-spacing="5" fill="${GOLDS}">PLAN PARA ESTA NOCHE</text>
+    ${rowsSvg}
+    ${cta(w, c.bot - 220, 'Conoce el plan', p)}
+    ${c.legal}`;
+}
+
+/* D · CONTRASTE — informação acumulada versus decisão tomada */
+function D(w, h){
+  const c = chrome(w, h);
+  const p = c.pad;
+  const big = h > 1500 ? 92 : 84, lh = h > 1500 ? 106 : 98;
+  const y0 = c.top + (h > 1500 ? 200 : 175);
+  const bY = y0 + big*0.78 + lh + 110;
+  const bw = (w - p*2 - 26)/2, bh = 300;
+  return c.bg + c.brand + `
+    <text x="${p}" y="${y0 - 54}" font-family="${SANS}" font-size="25" font-weight="700"
+          letter-spacing="6" fill="${GOLD}">LA DIFERENCIA</text>
+    ${lines(['Saber no es','lo mismo que','tener un plan.'], p, y0 + big*0.78, lh,
+      `font-family="${SERIF}" font-size="${big}" fill="${IVORY}"`)}
+    <rect x="${p}" y="${bY+lh}" width="${bw}" height="${bh}" rx="18" fill="${IVORY}" fill-opacity="0.05"
+          stroke="${IVORY}" stroke-opacity="0.18" stroke-width="1.5"/>
+    <text x="${p+30}" y="${bY+lh+82}" font-family="${SERIF}" font-size="76" fill="${IVORY}" fill-opacity="0.55">30</text>
+    <text x="${p+30}" y="${bY+lh+140}" font-family="${SANS}" font-size="30" fill="${IVORY}" fill-opacity="0.62">consejos</text>
+    <text x="${p+30}" y="${bY+lh+180}" font-family="${SANS}" font-size="30" fill="${IVORY}" fill-opacity="0.62">guardados</text>
+    <text x="${p+30}" y="${bY+lh+250}" font-family="${SANS}" font-size="27" fill="${IVORY}" fill-opacity="0.4">ninguno empezado</text>
+
+    <rect x="${p+bw+26}" y="${bY+lh}" width="${bw}" height="${bh}" rx="18" fill="${IVORY}"/>
+    <text x="${p+bw+56}" y="${bY+lh+82}" font-family="${SERIF}" font-size="76" fill="${GOLD}">1</text>
+    <text x="${p+bw+56}" y="${bY+lh+140}" font-family="${SANS}" font-size="30" font-weight="700" fill="#15303A">acción</text>
+    <text x="${p+bw+56}" y="${bY+lh+180}" font-family="${SANS}" font-size="30" font-weight="700" fill="#15303A">escrita</text>
+    <text x="${p+bw+56}" y="${bY+lh+250}" font-family="${SANS}" font-size="27" fill="#5A7079">con hora y lugar</text>
+
+    <text x="${p}" y="${bY+lh+bh+80}" font-family="${SANS}" font-size="33" fill="${IVORY}" fill-opacity="0.82">Noches en Calma organiza cuál va primero.</text>
+    ${cta(w, c.bot - 220, 'Ver qué incluye', p)}
+    ${c.legal}`;
+}
+
+/* E · ELEIÇÃO EDITORIAL — curiosidade sem quiz nem diagnóstico */
+function E(w, h){
+  const c = chrome(w, h);
+  const p = c.pad;
+  const big = h > 1500 ? 88 : 80, lh = h > 1500 ? 102 : 94;
+  const y0 = c.top + (h > 1500 ? 190 : 165);
+  const oY = y0 + big*0.78 + lh*1 + 104;
+  const ow = w - p*2, oh = 112, gap = 20;
+  const opts = ['Darle un lugar al celular','Cerrar los pendientes en papel','Fijar la hora de despertar'];
+  const optsSvg = opts.map((t,i)=>{
+    const y = oY + i*(oh+gap);
+    return `
+      <rect x="${p}" y="${y}" width="${ow}" height="${oh}" rx="56" fill="${IVORY}" fill-opacity="0.06"
+            stroke="${GOLDS}" stroke-opacity="0.3" stroke-width="1.5"/>
+      <circle cx="${p+52}" cy="${y+oh/2}" r="15" fill="none" stroke="${GOLDS}" stroke-opacity="0.65" stroke-width="2"/>
+      <text x="${p+96}" y="${y+oh/2+13}" font-family="${SANS}" font-size="34" fill="${IVORY}" fill-opacity="0.9">${esc(t)}</text>`;
+  }).join('');
+  return c.bg + c.brand + `
+    <text x="${p}" y="${y0 - 54}" font-family="${SANS}" font-size="25" font-weight="700"
+          letter-spacing="6" fill="${GOLD}">EMPEZAR POR UNA</text>
+    ${lines(['¿Por dónde','empezarías hoy?'], p, y0 + big*0.78, lh,
+      `font-family="${SERIF}" font-size="${big}" fill="${IVORY}"`)}
+    ${optsSvg}
+    <text x="${p}" y="${oY + 3*(oh+gap) + 58}" font-family="${SANS}" font-size="33"
+          fill="${IVORY}" fill-opacity="0.8">El Mapa CALMA te ayuda a elegir la primera.</text>
+    ${cta(w, c.bot - 220, 'Conoce Noches en Calma', p)}
+    ${c.legal}`;
+}
+
+/* ============================================================
+   PEÇAS A EXPORTAR
+   ============================================================ */
+const PIECES = [
+  {id:'a-identificacion-1080x1350', t:'A · Identificação', s:'Feed 4:5 — 1080×1350', w:1080, h:1350, f:A},
+  {id:'a-identificacion-1080x1920', t:'A · Identificação', s:'Stories/Reels 9:16 — 1080×1920', w:1080, h:1920, f:A},
+  {id:'b-mecanismo-1080x1350',      t:'B · Mecanismo',     s:'Feed 4:5 — 1080×1350', w:1080, h:1350, f:B},
+  {id:'b-mecanismo-1080x1920',      t:'B · Mecanismo',     s:'Stories/Reels 9:16 — 1080×1920', w:1080, h:1920, f:B},
+  {id:'c-demostracion-1080x1350',   t:'C · Demonstração',  s:'Feed 4:5 — 1080×1350', w:1080, h:1350, f:C},
+  {id:'c-demostracion-1080x1920',   t:'C · Demonstração',  s:'Stories/Reels 9:16 — 1080×1920', w:1080, h:1920, f:C},
+  {id:'d-contraste-1080x1350',      t:'D · Contraste',     s:'Feed 4:5 — 1080×1350', w:1080, h:1350, f:D},
+  {id:'e-eleccion-1080x1350',       t:'E · Eleição',       s:'Feed 4:5 — 1080×1350', w:1080, h:1350, f:E}
+];
+
+function svgOf(pc){
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${pc.w}" height="${pc.h}" viewBox="0 0 ${pc.w} ${pc.h}">${pc.f(pc.w, pc.h)}</svg>`;
+}
+
+function download(name, blob){
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 4000);
+}
+
+function toPng(pc){
+  return new Promise(res=>{
+    const cv = document.createElement('canvas');
+    cv.width = pc.w; cv.height = pc.h;
+    const img = new Image();
+    img.onload = ()=>{
+      cv.getContext('2d').drawImage(img, 0, 0, pc.w, pc.h);
+      cv.toBlob(b => res(b), 'image/png');
+    };
+    img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgOf(pc));
+  });
+}
+
+const grid = document.getElementById('grid');
+PIECES.forEach(pc=>{
+  const el = document.createElement('div');
+  el.className = 'item';
+  el.innerHTML = `<div class="cv"><canvas width="${pc.w}" height="${pc.h}"></canvas></div>
+    <div class="meta"><b>${pc.t}</b><span>${pc.s}</span>
+      <div class="row"><button data-png>Baixar PNG</button><button class="sec" data-svg>SVG</button></div>
+    </div>`;
+  grid.appendChild(el);
+
+  const cv = el.querySelector('canvas');
+  const img = new Image();
+  img.onload = ()=> cv.getContext('2d').drawImage(img, 0, 0, pc.w, pc.h);
+  img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgOf(pc));
+
+  el.querySelector('[data-png]').onclick = async ()=> download(pc.id + '.png', await toPng(pc));
+  el.querySelector('[data-svg]').onclick = ()=> download(pc.id + '.svg', new Blob([svgOf(pc)], {type:'image/svg+xml'}));
+});
+
+document.getElementById('all').onclick = async ()=>{
+  for (const pc of PIECES){ download(pc.id + '.png', await toPng(pc)); await new Promise(r=>setTimeout(r,450)); }
+};
+document.getElementById('allsvg').onclick = async ()=>{
+  for (const pc of PIECES){ download(pc.id + '.svg', new Blob([svgOf(pc)], {type:'image/svg+xml'})); await new Promise(r=>setTimeout(r,250)); }
+};
+</script>
+</body>
+</html>

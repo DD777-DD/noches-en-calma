@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Noches en Calma — La noche empieza antes de acostarte</title>
+<meta name="description" content="Convierte los consejos sueltos sobre el sueño en un plan personal para esta noche y practícalo 7 días. Material educativo de hábitos nocturnos, en español.">
+<link rel="canonical" href="https://nochesencalma.online/">
+<meta name="theme-color" content="#0C1F26">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="Noches en Calma">
+<meta property="og:title" content="La noche empieza antes de acostarte">
+<meta property="og:description" content="Una prioridad. Una acción. Un momento. Siete noches de práctica.">
+<meta property="og:url" content="https://nochesencalma.online/">
+<meta property="og:image" content="https://nochesencalma.online/assets/thumb.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/cover.png" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  color-scheme: light;
+  --ink:#0B1E25; --ink-2:#12303A; --ink-3:#1C4551;
+  --paper:#FBF8F2; --paper-2:#F3EDE1; --paper-3:#EAE2D2;
+  --gold:#B8863F; --gold-soft:#E7CFA4;
+  --sage:#8FB6A3;
+  --text:#15303A; --text-2:#42606A; --muted:#6B838C;
+  --line:#DCD2C0; --line-dark:rgba(231,207,164,.22);
+  --radius:14px;
+  --wrap:1120px;
+  --ease:cubic-bezier(.22,.8,.28,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--text);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-.015em;line-height:1.1;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.4rem,7.6vw,4.4rem);font-variation-settings:'opsz' 144,'SOFT' 8}
+h2{font-size:clamp(1.9rem,4.7vw,3rem);font-variation-settings:'opsz' 120,'SOFT' 6}
+h3{font-size:clamp(1.1rem,2.2vw,1.28rem);line-height:1.25}
+p{margin:0 0 1em}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 22px}
+.narrow{max-width:660px}
+section{padding:clamp(54px,7.6vw,96px) 0}
+.eyebrow{font-family:'Inter',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.19em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+.lead{font-size:clamp(1.05rem,2.1vw,1.2rem);line-height:1.58;color:var(--text-2)}
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.6em;
+  background:linear-gradient(178deg,#C9954A,#A97430);color:#FFF9EE;
+  font-family:'Inter',sans-serif;font-weight:600;font-size:1.03rem;
+  padding:19px 30px;border-radius:100px;border:0;text-decoration:none;cursor:pointer;
+  box-shadow:0 10px 26px -12px rgba(150,100,35,.75), inset 0 1px 0 rgba(255,255,255,.28);
+  transition:transform .22s var(--ease), box-shadow .22s var(--ease);
+  text-align:center;line-height:1.25;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 32px -12px rgba(150,100,35,.85), inset 0 1px 0 rgba(255,255,255,.3)}
+.btn:active{transform:translateY(0)}
+.btn .arw{transition:transform .22s var(--ease)}
+.btn:hover .arw{transform:translateX(4px)}
+.btn-block{display:flex;width:100%}
+.btn-ghost{background:transparent;color:var(--gold-soft);border:1px solid rgba(231,207,164,.4);box-shadow:none;font-weight:500;padding:13px 22px;font-size:.92rem}
+.btn-ghost:hover{background:rgba(231,207,164,.09);transform:none;box-shadow:none}
+.cta-block{margin:32px 0 0}
+.cta-micro{font-size:.82rem;line-height:1.5;color:var(--muted);margin:13px 0 0;max-width:42ch}
+.cta-center{text-align:center;display:flex;flex-direction:column;align-items:center}
+.cta-center .cta-micro{margin-inline:auto}
+
+/* ============ TOP ============ */
+.topline{background:var(--ink);color:rgba(248,245,238,.6);font-size:.71rem;letter-spacing:.05em;text-align:center;padding:9px 18px;line-height:1.45;border-bottom:1px solid rgba(231,207,164,.13)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:clamp(40px,6.5vw,68px)}
+.brand{font-family:'Fraunces',Georgia,serif;font-size:1.18rem;color:var(--paper);text-decoration:none}
+.brand em{font-style:normal;color:var(--gold-soft)}
+.nav-in .btn-ghost{display:none}
+@media(min-width:820px){.nav-in .btn-ghost{display:inline-flex}}
+
+/* ============ HERO ============ */
+.hero{position:relative;background:var(--ink);color:var(--paper);overflow:hidden;padding:26px 0 clamp(52px,6.5vw,88px)}
+.hero::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(120% 78% at 78% 6%, rgba(143,182,163,.13), transparent 58%),
+             radial-gradient(90% 62% at 8% 96%, rgba(184,134,63,.16), transparent 62%),
+             linear-gradient(172deg,#0B1E25 0%,#123039 58%,#0D2229 100%)}
+.arcs{position:absolute;top:-16%;right:-30%;width:min(920px,120vw);opacity:.5;pointer-events:none}
+@media(min-width:900px){.arcs{right:-6%;top:-24%;width:760px;opacity:.62}}
+.hero .wrap{position:relative;z-index:2}
+.hero-grid{display:grid;gap:clamp(34px,4.5vw,54px)}
+@media(min-width:940px){.hero-grid{grid-template-columns:1.08fr .92fr;align-items:center}}
+.hero h1{color:var(--paper);margin-bottom:20px}
+.hero h1 .gold{color:var(--gold-soft);font-style:italic;font-variation-settings:'opsz' 144,'SOFT' 20,'WONK' 1}
+.hero-sub{font-size:clamp(1.06rem,2.3vw,1.26rem);line-height:1.56;color:rgba(248,245,238,.82);max-width:31ch;margin-bottom:16px}
+.hero-sub b{color:var(--paper);font-weight:500}
+.hero-body{font-family:'Fraunces',Georgia,serif;font-size:clamp(1.1rem,2.2vw,1.3rem);line-height:1.4;color:var(--gold-soft);max-width:24ch}
+.hero .cta-micro{color:rgba(248,245,238,.55)}
+.trustrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;padding-top:22px;border-top:1px solid var(--line-dark)}
+.chip{font-size:.73rem;letter-spacing:.04em;color:rgba(248,245,238,.7);border:1px solid var(--line-dark);border-radius:100px;padding:6px 13px;white-space:nowrap}
+.chip b{color:var(--gold-soft);font-weight:600}
+.art{position:relative;margin-inline:auto;max-width:290px;width:100%}
+@media(min-width:560px){.art{max-width:360px}}
+@media(min-width:940px){.art{max-width:430px}}
+.art-glow{position:absolute;inset:-14% -10% -8%;background:radial-gradient(50% 50% at 50% 45%,rgba(231,207,164,.20),transparent 68%);filter:blur(6px)}
+.art img{position:relative;border-radius:6px;box-shadow:0 40px 80px -34px rgba(0,0,0,.85), 0 0 0 1px rgba(231,207,164,.16);transform:rotate(-1.6deg)}
+.plan-float{position:relative;margin:-56px 0 0 auto;width:min(300px,88%);background:var(--paper);color:var(--text);border-radius:12px;padding:16px 18px;box-shadow:0 26px 52px -22px rgba(0,0,0,.7);transform:rotate(1.4deg);font-size:.83rem;line-height:1.45}
+.plan-float .pf-l{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:7px}
+.plan-float b{display:block;font-family:'Fraunces',Georgia,serif;font-size:1.02rem;font-weight:400;line-height:1.3;margin-bottom:6px}
+.plan-float span{color:var(--text-2)}
+
+/* ============ QUOTES ============ */
+.quotes{display:grid;gap:11px;margin:30px 0 0}
+@media(min-width:760px){.quotes{grid-template-columns:1fr 1fr;gap:13px}}
+.q{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px 18px 42px;font-size:1rem;line-height:1.5;position:relative;margin:0}
+.q::before{content:"“";position:absolute;left:17px;top:12px;font-family:'Fraunces',Georgia,serif;font-size:2rem;color:var(--gold-soft);line-height:1}
+.after-quotes{margin:26px 0 0;padding:20px 22px;border-left:3px solid var(--gold);background:var(--paper-2);border-radius:0 var(--radius) var(--radius) 0;font-size:1.05rem;line-height:1.55}
+
+/* ============ PROBLEM ============ */
+.problem{background:var(--paper-2)}
+.two{display:grid;gap:clamp(22px,3.5vw,50px)}
+@media(min-width:900px){.two{grid-template-columns:.92fr 1.08fr;align-items:start}}
+.pull{font-family:'Fraunces',Georgia,serif;font-size:clamp(1.18rem,2.5vw,1.45rem);line-height:1.4;color:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;margin:24px 0 0}
+.pull b{font-weight:600;color:var(--gold)}
+
+/* ============ METHOD ============ */
+.method{background:var(--ink-2);color:var(--paper);position:relative;overflow:hidden}
+.method::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 92% 4%,rgba(143,182,163,.10),transparent 60%);pointer-events:none}
+.method .wrap{position:relative;z-index:2}
+.method h2{color:var(--paper)}
+.method .lead{color:rgba(248,245,238,.66)}
+.steps{display:grid;gap:1px;margin-top:38px;background:var(--line-dark);border:1px solid var(--line-dark);border-radius:var(--radius);overflow:hidden}
+@media(min-width:700px){.steps{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.steps{grid-template-columns:repeat(5,1fr)}}
+.step{background:var(--ink-2);padding:24px 20px 26px;display:flex;flex-direction:column;gap:8px}
+.step-l{font-family:'Fraunces',Georgia,serif;font-size:2.4rem;line-height:1;color:var(--gold-soft);font-variation-settings:'opsz' 144,'SOFT' 20}
+.step h3{color:var(--paper)}
+.step p{color:rgba(248,245,238,.63);font-size:.92rem;line-height:1.5;margin:0}
+.step .ex{margin-top:auto;padding-top:11px;border-top:1px solid var(--line-dark);font-size:.82rem;color:rgba(143,182,163,.9);font-style:italic}
+.method-note{margin-top:22px;font-size:.84rem;color:rgba(248,245,238,.45);max-width:66ch}
+
+/* ============ PICKER ============ */
+.picker{display:grid;gap:9px;margin:28px 0 0}
+@media(min-width:760px){.picker{grid-template-columns:1fr 1fr}}
+.opt{display:flex;align-items:center;gap:13px;text-align:left;width:100%;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;font-family:inherit;font-size:.98rem;line-height:1.4;color:var(--text);cursor:pointer;transition:border-color .2s var(--ease),background .2s var(--ease),transform .2s var(--ease)}
+.opt:hover{border-color:var(--gold-soft);transform:translateY(-1px)}
+.opt[aria-pressed="true"]{border-color:var(--gold);background:#FFFDF7;box-shadow:0 0 0 1px var(--gold)}
+.opt .dot{width:11px;height:11px;border-radius:50%;border:1.5px solid var(--line);flex:0 0 auto;transition:.2s}
+.opt[aria-pressed="true"] .dot{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,134,63,.18)}
+.result{margin:24px 0 0}
+.result[hidden]{display:none}
+.plan-card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 22px 48px -30px rgba(11,30,37,.55)}
+.plan-head{background:var(--ink-2);color:var(--paper);padding:18px 22px;display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}
+.plan-head .t{font-family:'Fraunces',Georgia,serif;font-size:1.2rem;line-height:1.25}
+.plan-head .tag{font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:var(--gold-soft);padding:5px 10px;border-radius:100px;font-weight:600;white-space:nowrap}
+.row{display:grid;gap:3px;padding:14px 22px;border-bottom:1px solid var(--paper-3)}
+@media(min-width:640px){.row{grid-template-columns:150px 1fr;gap:18px;align-items:baseline}}
+.row:last-of-type{border-bottom:0}
+.row .k{font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.row .v{font-size:.99rem;line-height:1.48;color:var(--text)}
+.plan-foot{background:var(--paper-2);padding:13px 22px;font-size:.79rem;color:var(--muted);line-height:1.45}
+
+/* ============ CARDS ============ */
+.cards{display:grid;gap:13px;margin-top:36px}
+@media(min-width:680px){.cards{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.cards{grid-template-columns:repeat(3,1fr)}}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px 26px;display:flex;flex-direction:column;gap:8px}
+.card p{color:var(--text-2);font-size:.94rem;line-height:1.52;margin:0}
+.card .fmt{margin-top:auto;padding-top:12px;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+/* ============ TOC ============ */
+.toc{margin-top:30px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;overflow:hidden}
+.toc summary{cursor:pointer;padding:18px 22px;font-weight:600;font-size:.96rem;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.toc summary::-webkit-details-marker{display:none}
+.toc summary::after{content:"+";font-family:'Fraunces',serif;font-size:1.4rem;color:var(--gold);line-height:1}
+.toc[open] summary::after{content:"–"}
+.toc-in{padding:0 22px 22px;border-top:1px solid var(--paper-3)}
+.toc-list{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:6px;font-size:.88rem;color:var(--text-2)}
+@media(min-width:720px){.toc-list{grid-template-columns:1fr 1fr;gap:6px 30px}}
+.toc-list li{display:flex;gap:10px;line-height:1.45}
+.toc-list b{color:var(--gold);font-weight:600;font-variant-numeric:tabular-nums;flex:0 0 auto;font-size:.8rem;padding-top:.08em}
+
+/* ============ TIMELINE ============ */
+.first5{background:var(--paper-2)}
+.tl{display:grid;gap:1px;margin-top:36px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+@media(min-width:820px){.tl{grid-template-columns:repeat(4,1fr)}}
+.tl-i{background:var(--paper);padding:22px 20px;display:flex;flex-direction:column;gap:6px}
+.tl-i .m{font-size:.69rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.tl-i h3{font-size:1.04rem}
+.tl-i p{font-size:.9rem;color:var(--text-2);line-height:1.5;margin:0}
+
+/* ============ FIT ============ */
+.fit{display:grid;gap:14px;margin-top:34px}
+@media(min-width:820px){.fit{grid-template-columns:1fr 1fr;gap:18px}}
+.fit-col{border-radius:var(--radius);padding:26px 24px;border:1px solid var(--line);background:#fff}
+.fit-col.no{background:var(--paper-2)}
+.fit-col h3{margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.fit-col h3 .ic{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:.8rem;flex:0 0 auto}
+.fit-col.si .ic{background:rgba(143,182,163,.24);color:#2F6B54}
+.fit-col.no .ic{background:rgba(184,134,63,.18);color:#8A5F22}
+.fit-col ul{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+.fit-col li{display:flex;gap:11px;font-size:.96rem;line-height:1.48;color:var(--text-2)}
+.fit-col li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold-soft);flex:0 0 auto;margin-top:.52em}
+.fit-note{margin:22px 0 0;font-size:.96rem;line-height:1.55;color:var(--text);background:#fff;border:1px dashed var(--gold-soft);border-radius:var(--radius);padding:19px 21px}
+
+/* ============ TRANSPARENCY ============ */
+.transp{background:var(--ink);color:var(--paper)}
+.transp h2{color:var(--paper)}
+.transp p{color:rgba(248,245,238,.7)}
+.transp .box{border:1px solid var(--line-dark);border-radius:var(--radius);padding:24px;margin-top:24px;background:rgba(255,255,255,.028)}
+.transp .box p{margin:0;color:rgba(248,245,238,.78)}
+
+/* ============ OFFER ============ */
+.offer{background:var(--ink-2);color:var(--paper);position:relative;overflow:hidden}
+.offer::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 62% at 14% 100%,rgba(184,134,63,.20),transparent 62%);pointer-events:none}
+.offer .wrap{position:relative;z-index:2}
+.offer h2{color:var(--paper)}
+.obox{display:grid;margin-top:34px;border:1px solid var(--line-dark);border-radius:18px;overflow:hidden;background:rgba(255,255,255,.03)}
+@media(min-width:900px){.obox{grid-template-columns:1.06fr .94fr}}
+.obox-l{padding:clamp(24px,3.4vw,38px)}
+.obox-r{padding:clamp(24px,3.4vw,38px);background:var(--paper);color:var(--text);display:flex;flex-direction:column;justify-content:center}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.checks li{display:flex;gap:12px;font-size:.96rem;line-height:1.45;color:rgba(248,245,238,.84)}
+.checks li svg{flex:0 0 auto;margin-top:.3em}
+.price-label{font-size:.69rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px}
+.price{font-family:'Fraunces',Georgia,serif;font-size:clamp(2.6rem,7.4vw,3.6rem);line-height:1;color:var(--ink-2);margin:0 0 8px;font-variation-settings:'opsz' 144}
+.price-sub{font-size:.85rem;line-height:1.5;color:var(--muted);margin-bottom:20px}
+.pay{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.pay span{font-size:.72rem;letter-spacing:.04em;color:var(--text-2);border:1px solid var(--line);border-radius:100px;padding:5px 11px;background:#fff}
+
+/* ============ GUARANTEE ============ */
+.guar{background:var(--paper-2)}
+.guar-box{display:grid;gap:24px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(26px,3.8vw,42px)}
+@media(min-width:820px){.guar-box{grid-template-columns:126px 1fr;gap:36px}}
+.seal{width:126px;height:126px;margin-inline:auto}
+.guar-box h2{font-size:clamp(1.45rem,3vw,2rem);margin-bottom:12px}
+.guar-box p{color:var(--text-2);font-size:.98rem;margin:0}
+.guar-box a{color:var(--gold);text-underline-offset:3px}
+
+/* ============ SAFETY ============ */
+.safety-box{border:1px solid var(--line);border-radius:var(--radius);background:#fff;padding:clamp(22px,3.2vw,32px);margin-top:30px}
+.safety-box h3{margin-bottom:13px}
+.safety-box ul{margin:0;padding-left:19px;color:var(--text-2);display:grid;gap:7px;font-size:.96rem}
+.safety-box .fine{margin:16px 0 0;font-size:.9rem;color:var(--muted);line-height:1.55}
+
+/* ============ FAQ ============ */
+.faq{margin-top:32px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:20px 40px 20px 0;position:relative;font-weight:500;font-size:1.02rem;line-height:1.4;color:var(--text)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:6px;top:18px;font-family:'Fraunces',serif;font-size:1.4rem;color:var(--gold);line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq .a{padding:0 0 21px;color:var(--text-2);font-size:.98rem;line-height:1.6;max-width:68ch}
+.faq .a p{margin:0}
+.faq .a a{color:var(--gold)}
+
+/* ============ CLOSING ============ */
+.closing{background:var(--ink);color:var(--paper);text-align:center;position:relative;overflow:hidden}
+.closing::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 108%,rgba(184,134,63,.24),transparent 66%);pointer-events:none}
+.closing .wrap{position:relative;z-index:2}
+.closing h2{color:var(--paper);max-width:17ch;margin-inline:auto}
+.closing .lead{color:rgba(248,245,238,.68);max-width:46ch;margin:20px auto 0}
+
+/* ============ FOOTER ============ */
+footer{background:#08171C;color:rgba(248,245,238,.52);font-size:.83rem;padding:46px 0 120px}
+@media(min-width:900px){footer{padding-bottom:46px}}
+.f-top{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid rgba(231,207,164,.12)}
+.f-brand{font-family:'Fraunces',Georgia,serif;font-size:1.08rem;color:var(--paper)}
+.f-links{display:flex;flex-wrap:wrap;gap:18px}
+.f-links a{color:rgba(248,245,238,.66);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px}
+.f-links a:hover{color:var(--gold-soft);border-color:var(--gold-soft)}
+.f-legal{margin-top:20px;line-height:1.6;max-width:76ch;color:rgba(248,245,238,.42);font-size:.78rem}
+.f-legal p{margin:0 0 .65em}
+
+/* ============ STICKY ============ */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(11,30,37,.96);backdrop-filter:blur(12px);border-top:1px solid rgba(231,207,164,.2);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;transform:translateY(110%);transition:transform .32s var(--ease)}
+.sticky.on{transform:translateY(0)}
+.sticky-txt{flex:1;min-width:0;color:var(--paper);line-height:1.25}
+.sticky-txt b{display:block;font-family:'Fraunces',Georgia,serif;font-size:1.05rem;font-weight:400}
+.sticky-txt span{font-size:.71rem;color:rgba(248,245,238,.55)}
+.sticky .btn{padding:14px 20px;font-size:.92rem;flex:0 0 auto}
+@media(min-width:900px){.sticky{display:none}}
+
+/* ============ COOKIE ============ */
+.cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:70;max-width:410px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:17px 19px;box-shadow:0 20px 50px -20px rgba(0,0,0,.45);font-size:.84rem;line-height:1.5}
+.cookie[hidden]{display:none}
+.cookie p{margin:0 0 13px;color:var(--text-2)}
+.cookie a{color:var(--gold)}
+.cookie div{display:flex;gap:9px}
+.cookie button{flex:1;border-radius:100px;border:1px solid var(--line);background:#fff;color:var(--text);padding:9px 12px;font-family:inherit;font-size:.82rem;font-weight:500;cursor:pointer}
+.cookie button.pri{background:var(--ink-2);color:var(--paper);border-color:var(--ink-2)}
+
+/* ============ MOTION ============ */
+.rv{transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js .rv{opacity:0;transform:translateY(18px)}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .rv{opacity:1;transform:none;transition:none}
+  .btn,.opt{transition:none}
+}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:12px;top:12px;z-index:99;background:#fff;color:var(--text);padding:10px 16px;border-radius:8px}
+:focus-visible{outline:2px solid var(--gold-soft);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+<script>document.documentElement.className+=" js";</script>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<div class="topline">Material educativo de hábitos nocturnos · No diagnostica ni trata trastornos del sueño</div>
+
+<header class="hero" id="top">
+  <svg class="arcs" viewBox="0 0 600 600" fill="none" aria-hidden="true">
+    <g stroke="#8FB6A3" stroke-opacity=".26">
+      <circle cx="300" cy="300" r="120"/><circle cx="300" cy="300" r="185"/>
+      <circle cx="300" cy="300" r="250"/><circle cx="300" cy="300" r="315"/>
+      <circle cx="300" cy="300" r="380"/>
+    </g>
+    <path d="M330 150a86 86 0 1 0 84 106 68 68 0 1 1-84-106Z" fill="#8FB6A3" fill-opacity=".55"/>
+  </svg>
+  <div class="wrap">
+    <nav class="nav-in" aria-label="Principal">
+      <a class="brand" href="#top">Noches en <em>Calma</em></a>
+      <a class="btn btn-ghost js-cta" data-loc="nav" href="#oferta">Ver la edición</a>
+    </nav>
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Edición de lanzamiento · México</p>
+        <h1>La noche empieza <span class="gold">antes</span> de acostarte.</h1>
+        <p class="hero-sub">No te falta información. <b>Te falta una secuencia que aguante un martes a las 22:40</b>, cansado y con el celular en la mano.</p>
+        <p class="hero-body">Una prioridad. Una acción. Un momento. Siete noches.</p>
+        <div class="cta-block">
+          <a class="btn js-cta" data-loc="hero" href="#oferta">Quiero mi plan para esta noche <span class="arw" aria-hidden="true">→</span></a>
+          <p class="cta-micro">Pago único de <b id="p-hero">MX$190.81</b> · Acceso al aprobarse el pago · 15 días para pedir reembolso</p>
+        </div>
+        <div class="trustrow">
+          <span class="chip"><b>22</b> páginas</span>
+          <span class="chip"><b>7</b> días de práctica</span>
+          <span class="chip"><b>6</b> protocolos</span>
+          <span class="chip">Pago por <b>Hotmart</b></span>
+        </div>
+      </div>
+      <div class="art">
+        <div class="art-glow" aria-hidden="true"></div>
+        <img src="assets/cover.png" width="1191" height="1684" alt="Portada de la guía Noches en Calma" fetchpriority="high">
+        <div class="plan-float" aria-hidden="true">
+          <div class="pf-l">Plan para esta noche</div>
+          <b>El celular va a su lugar de carga</b>
+          <span>Al terminar de cenar · Si no puedo: boca abajo, del otro lado del cuarto</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="contenido">
+
+<!-- IDENTIFICACIÓN -->
+<section>
+  <div class="wrap">
+    <h2 class="narrow rv">¿Reconoces alguna?</h2>
+    <div class="quotes rv">
+      <p class="q">Estoy agotado, y en cuanto apago la luz mi cabeza se enciende.</p>
+      <p class="q">Cinco minutos de celular y de repente es la una.</p>
+      <p class="q">Me acuesto repasando lo que no hice hoy.</p>
+      <p class="q">Me despierto de madrugada y empiezo a contar horas.</p>
+      <p class="q">Cada día me acuesto a una hora distinta.</p>
+      <p class="q">Sé lo que debería hacer. El problema es hacerlo.</p>
+    </div>
+    <p class="after-quotes rv">Dos o más no es falta de disciplina. <strong>Es que nadie convirtió esos consejos en un plan que empiece antes de la cama.</strong></p>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="problem">
+  <div class="wrap two">
+    <div class="rv">
+      <p class="eyebrow">El problema real</p>
+      <h2>Sabes qué hacer. No sabes por dónde empezar.</h2>
+    </div>
+    <div class="rv">
+      <p class="lead">Treinta recomendaciones razonables. Ninguna te dice cuál va primero, en qué momento exacto, ni qué haces cuando el día se descarrila.</p>
+      <p>Así que a las 22:40 una intención vaga compite contra una pantalla que no exige ningún esfuerzo. Y gana la pantalla. No por debilidad: porque una tiene instrucciones y la otra no.</p>
+      <p class="pull">Un consejo sin momento, sin lugar y sin plan B es información. <b>Aquí se convierte en una decisión ya tomada.</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- MÉTODO -->
+<section class="method">
+  <div class="wrap">
+    <div class="narrow rv">
+      <p class="eyebrow">El método CALMA</p>
+      <h2>Cinco decisiones. Empiezas por una.</h2>
+      <p class="lead">Tu mapa dice cuál. Las otras cuatro esperan su turno.</p>
+    </div>
+    <div class="steps rv">
+      <article class="step"><div class="step-l">C</div><h3>Constancia</h3><p>Fija la hora de despertar, no la de dormir. Es la que sí controlas.</p><div class="ex">«7:00, también el sábado.»</div></article>
+      <article class="step"><div class="step-l">A</div><h3>Atenúa</h3><p>Baja el estímulo antes que la luz. La cabeza no cambia de modo con un interruptor.</p><div class="ex">«A las 22:00 el celular va a cargar.»</div></article>
+      <article class="step"><div class="step-l">L</div><h3>Libera</h3><p>Vacía el día en papel, antes de que la cama sea el lugar donde lo revisas.</p><div class="ex">«Tres líneas: lo de mañana.»</div></article>
+      <article class="step"><div class="step-l">M</div><h3>Mueve la vigilia</h3><p>Si llevas rato despierto y frustrado, deja de pelear con la cama.</p><div class="ex">«Silla, luz baja, vuelvo con sueño.»</div></article>
+      <article class="step"><div class="step-l">A</div><h3>Ajusta</h3><p>Una molestia menos en el cuarto. Una. No un cuarto perfecto.</p><div class="ex">«Tapo la luz del módem.»</div></article>
+    </div>
+    <p class="method-note">CALMA ordena decisiones cotidianas. No es un método clínicamente validado, no es terapia cognitivo-conductual para el insomnio y no sustituye una valoración profesional.</p>
+  </div>
+</section>
+
+<!-- DEMOSTRACIÓN -->
+<section>
+  <div class="wrap">
+    <div class="narrow rv">
+      <p class="eyebrow">Mira el sistema por dentro</p>
+      <h2>¿Cuál de estas noches es la tuya?</h2>
+      <p class="lead">Elige una y verás el plan que vas a completar adentro. Ejemplo del material, no un diagnóstico.</p>
+    </div>
+
+    <div class="picker rv" role="group" aria-label="Elige la noche que más se parece a la tuya">
+      <button class="opt" type="button" aria-pressed="false" data-k="L"><span class="dot" aria-hidden="true"></span>Mi cabeza no se apaga</button>
+      <button class="opt" type="button" aria-pressed="false" data-k="A1"><span class="dot" aria-hidden="true"></span>El celular se lleva mi última hora</button>
+      <button class="opt" type="button" aria-pressed="false" data-k="C"><span class="dot" aria-hidden="true"></span>Me acuesto a una hora distinta cada día</button>
+      <button class="opt" type="button" aria-pressed="false" data-k="M"><span class="dot" aria-hidden="true"></span>Me despierto de madrugada</button>
+      <button class="opt" type="button" aria-pressed="false" data-k="A2"><span class="dot" aria-hidden="true"></span>El cuarto nunca está cómodo</button>
+      <button class="opt" type="button" aria-pressed="false" data-k="X"><span class="dot" aria-hidden="true"></span>Varias, y no sé por cuál empezar</button>
+    </div>
+
+    <div class="result" id="result" hidden aria-live="polite">
+      <div class="plan-card">
+        <div class="plan-head">
+          <div class="t" id="r-title"></div>
+          <div class="tag" id="r-tag"></div>
+        </div>
+        <div class="row"><div class="k">Prioridad</div><div class="v" id="r-pri"></div></div>
+        <div class="row"><div class="k">Acción mínima</div><div class="v" id="r-act"></div></div>
+        <div class="row"><div class="k">Cuándo y dónde</div><div class="v" id="r-when"></div></div>
+        <div class="row"><div class="k">Si no puedo</div><div class="v" id="r-alt"></div></div>
+        <div class="row"><div class="k">Mañana reviso</div><div class="v" id="r-rev"></div></div>
+        <div class="plan-foot">Ejemplo del formato incluido. Adentro lo completas con tu situación, no con la nuestra.</div>
+      </div>
+      <div class="cta-block cta-center">
+        <a class="btn js-cta" data-loc="demo" href="#oferta">Quiero el mío <span class="arw" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ RECIBES -->
+<section class="problem">
+  <div class="wrap">
+    <div class="narrow rv">
+      <p class="eyebrow">Qué recibes</p>
+      <h2>Una guía que sirve a las 23:00, no solo el día que la lees.</h2>
+    </div>
+    <div class="cards rv">
+      <article class="card"><h3>Mapa CALMA</h3><p>Cinco frases sobre tu semana. Te devuelve una prioridad, no una etiqueta.</p><div class="fmt">Página 3</div></article>
+      <article class="card"><h3>Plan para esta noche</h3><p>El formato que acabas de ver, listo para completar.</p><div class="fmt">Página 10</div></article>
+      <article class="card"><h3>Seis protocolos de momento</h3><p>No consigo dormir · Me desperté a media noche · Mi cabeza sigue trabajando · Dormí mal ayer · Usé el celular hasta tarde · Tomé cafeína tarde.</p><div class="fmt">Páginas 11–16</div></article>
+      <article class="card"><h3>Siete días y registro</h3><p>Una decisión a la vez. Registras la acción, no calificas tu salud.</p><div class="fmt">Páginas 17–20</div></article>
+      <article class="card"><h3>Herramienta para el celular</h3><p>Mapa, plan y registro en un archivo que abres sin conexión. Tus respuestas se quedan en tu teléfono.</p><div class="fmt">HTML descargable</div></article>
+      <article class="card"><h3>Límites y fuentes</h3><p>Cuándo esta guía ayuda, cuándo toca hablar con un profesional y en qué se apoya cada recomendación.</p><div class="fmt">Páginas 21–22</div></article>
+    </div>
+
+    <details class="toc rv">
+      <summary>Ver el índice completo de las 22 páginas antes de comprar</summary>
+      <div class="toc-in">
+        <ol class="toc-list">
+          <li><b>01</b> Portada y cómo usar esta guía</li>
+          <li><b>02</b> Tu primera victoria: un plan claro</li>
+          <li><b>03</b> Una prioridad. No una etiqueta</li>
+          <li><b>04</b> CALMA: del consejo a la acción</li>
+          <li><b>05</b> Dale una referencia a mañana</li>
+          <li><b>06</b> Ponle un cierre visible al día</li>
+          <li><b>07</b> Dale una dirección al pendiente</li>
+          <li><b>08</b> Haz una pausa en la pelea</li>
+          <li><b>09</b> Una molestia menos en el cuarto</li>
+          <li><b>10</b> Tu plan mínimo cabe aquí</li>
+          <li><b>11</b> No consigo dormir</li>
+          <li><b>12</b> Me desperté a media noche</li>
+          <li><b>13</b> Mi cabeza sigue trabajando</li>
+          <li><b>14</b> Dormí mal ayer</li>
+          <li><b>15</b> Usé el celular hasta tarde</li>
+          <li><b>16</b> Tomé cafeína tarde</li>
+          <li><b>17</b> Practica una decisión a la vez</li>
+          <li><b>18</b> Esto puede esperar aquí</li>
+          <li><b>19</b> Presencia, no perfección</li>
+          <li><b>20</b> Conserva lo que cabe en tu vida</li>
+          <li><b>21</b> Cuándo esta guía no es suficiente</li>
+          <li><b>22</b> Qué respalda cada decisión</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- PRIMEROS 5 MINUTOS -->
+<section class="first5">
+  <div class="wrap">
+    <div class="narrow rv">
+      <p class="eyebrow">Tus primeros cinco minutos</p>
+      <h2>La primera victoria no es dormirte rápido.</h2>
+      <p class="lead">Es cerrar el día sabiendo qué vas a hacer y qué puedes soltar hasta mañana.</p>
+    </div>
+    <div class="tl rv">
+      <div class="tl-i"><div class="m">Minuto 0</div><h3>Pago aprobado</h3><p>Hotmart te abre el acceso y te lo envía al correo.</p></div>
+      <div class="tl-i"><div class="m">Minuto 1</div><h3>Empieza aquí</h3><p>Una página. Qué hacer primero y qué ignorar por ahora.</p></div>
+      <div class="tl-i"><div class="m">Minuto 3</div><h3>Tu mapa</h3><p>Cinco frases. Sale una letra: tu prioridad de la semana.</p></div>
+      <div class="tl-i"><div class="m">Minuto 5</div><h3>Tu plan escrito</h3><p>Una acción, un momento, una alternativa. Cierras y la preparas.</p></div>
+    </div>
+    <div class="cta-block cta-center rv">
+      <a class="btn js-cta" data-loc="first5" href="#oferta">Empezar esta noche <span class="arw" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUIÉN -->
+<section>
+  <div class="wrap">
+    <h2 class="narrow rv">No es para todos.</h2>
+    <div class="fit rv">
+      <div class="fit-col si">
+        <h3><span class="ic" aria-hidden="true">✓</span> Sí, si…</h3>
+        <ul>
+          <li>Tu jornada es mayormente diurna y puedes organizar el final del día.</li>
+          <li>Tus noches se alargan entre pantallas, pendientes y una rutina cambiante.</li>
+          <li>Ya leíste consejos y el problema fue sostenerlos, no conocerlos.</li>
+          <li>Prefieres una cosa bien elegida antes que una lista de quince.</li>
+        </ul>
+      </div>
+      <div class="fit-col no">
+        <h3><span class="ic" aria-hidden="true">✕</span> No, si…</h3>
+        <ul>
+          <li>Buscas tratamiento para un insomnio crónico diagnosticado, o terapia (CBT‑I).</li>
+          <li>Trabajas en turnos rotativos o nocturnos.</li>
+          <li>Cuidas a un bebé o a alguien que despierta varias veces.</li>
+          <li>Tienes ronquidos con pausas al respirar, ahogos o somnolencia intensa de día.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="fit-note rv"><strong>Si estás en la segunda columna, preferimos que no lo compres</strong> y que busques orientación profesional. Decírtelo antes nos parece más importante que una venta más.</p>
+  </div>
+</section>
+
+<!-- TRANSPARENCIA -->
+<section class="transp">
+  <div class="wrap narrow">
+    <h2 class="rv">Aquí no hay testimonios.</h2>
+    <p class="lead rv" style="color:rgba(248,245,238,.7)">Es un lanzamiento. Todavía no tenemos compradores suficientes para mostrar resultados sin inventarlos, y no vamos a inventarlos.</p>
+    <div class="box rv">
+      <p>Lo que sí puedes revisar antes de pagar: el índice completo de las 22 páginas, el formato exacto del plan y los seis protocolos por su nombre. Y si aun así no te sirve, tienes 15 días para pedir el reembolso sin dar explicaciones.</p>
+    </div>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section class="offer" id="oferta">
+  <div class="wrap">
+    <div class="narrow rv">
+      <p class="eyebrow">Edición de lanzamiento · México</p>
+      <h2>Noches en Calma</h2>
+      <p class="lead">Un pago. Sin suscripción, sin renovación automática, sin cargos después.</p>
+    </div>
+    <div class="obox rv">
+      <div class="obox-l">
+        <ul class="checks">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.4l3.2 3.2L13 5" stroke="#E7CFA4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Guía de 22 páginas en español (PDF)</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.4l3.2 3.2L13 5" stroke="#E7CFA4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Mapa CALMA para elegir tu prioridad</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.4l3.2 3.2L13 5" stroke="#E7CFA4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Plan para esta noche, listo para completar</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.4l3.2 3.2L13 5" stroke="#E7CFA4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Seis protocolos de consulta rápida</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.4l3.2 3.2L13 5" stroke="#E7CFA4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Plan de 7 días con registro simple</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.4l3.2 3.2L13 5" stroke="#E7CFA4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Herramienta para el celular, sin conexión</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.4l3.2 3.2L13 5" stroke="#E7CFA4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Acceso por 12 meses para descargar todo</li>
+        </ul>
+      </div>
+      <div class="obox-r">
+        <div class="price-label">Pago único</div>
+        <p class="price"><span class="p-txt">MX$190.81</span></p>
+        <p class="price-sub">Total en México, IVA incluido: MX$164.49 + MX$26.32. Desde otro país, Hotmart te muestra el total en tu moneda antes de confirmar.</p>
+        <a class="btn btn-block js-cta" data-loc="oferta" href="https://pay.hotmart.com/V107472709O" rel="noopener">Comprar ahora <span class="arw" aria-hidden="true">→</span></a>
+        <p class="cta-micro">Compra procesada por Hotmart. Acceso al aprobarse el pago. 15 días para pedir reembolso.</p>
+        <div class="pay"><span>Tarjeta</span><span>Mercado Pago</span><span>PayPal</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTÍA -->
+<section class="guar">
+  <div class="wrap">
+    <div class="guar-box rv">
+      <svg class="seal" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+        <circle cx="60" cy="60" r="55" stroke="#B8863F" stroke-width="1"/>
+        <circle cx="60" cy="60" r="47" stroke="#B8863F" stroke-width=".6" stroke-dasharray="2 4"/>
+        <text x="60" y="55" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="30" fill="#15303A">15</text>
+        <text x="60" y="74" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" letter-spacing="2" fill="#B8863F">DÍAS</text>
+      </svg>
+      <div>
+        <h2>Pruébalo siete noches. Si no te sirve, lo devuelves.</h2>
+        <p>Tienes 15 días desde la compra aprobada. Sin demostrar que dormiste mejor, sin explicar tu caso, sin hablar con nadie de ventas: se pide en el <a href="https://refund.hotmart.com/" target="_blank" rel="noopener">portal de Hotmart</a> con tu código de transacción. Es una política comercial y no limita tus derechos legales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEGURIDAD -->
+<section>
+  <div class="wrap">
+    <div class="narrow rv">
+      <p class="eyebrow">Rigor sin miedo</p>
+      <h2>La calma no es ignorar señales.</h2>
+    </div>
+    <div class="safety-box rv">
+      <h3>Consulta a un profesional si aparece alguna de estas señales</h3>
+      <ul>
+        <li>Dificultad persistente o severa para dormir, o que afecta tu día.</li>
+        <li>Ronquidos con pausas al respirar, ahogos nocturnos o somnolencia intensa.</li>
+        <li>Dolor, malestar importante o cambios notables en el ánimo.</li>
+        <li>Somnolencia al conducir o al manejar equipo: no conduzcas con sueño.</li>
+      </ul>
+      <p class="fine">Noches en Calma no diagnostica, previene ni trata enfermedades; no es terapia cognitivo‑conductual para el insomnio; no recomienda suplementos ni cambios de medicación; y no promete un resultado de sueño concreto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="problem">
+  <div class="wrap narrow">
+    <h2 class="rv">Antes de decidir</h2>
+    <div class="faq rv">
+      <details>
+        <summary>¿Es un tratamiento para el insomnio?</summary>
+        <div class="a"><p>No. Es material educativo para organizar hábitos nocturnos. El tratamiento de referencia para el insomnio crónico es la terapia cognitivo‑conductual (CBT‑I), y se hace con un profesional, no con un PDF.</p></div>
+      </details>
+      <details>
+        <summary>¿Voy a dormir mejor desde la primera noche?</summary>
+        <div class="a"><p>No podemos prometerlo. Lo que sí cambia la primera noche es que dejas de improvisar: tienes una prioridad elegida, una acción preparada y un momento decidido.</p></div>
+      </details>
+      <details>
+        <summary>¿Cuánto tiempo me toma al día?</summary>
+        <div class="a"><p>Cinco minutos una sola vez. Después, una acción mínima —del tipo «dejar el celular en su lugar de carga»— y dos preguntas por la mañana. Si un día no cabe, usas la alternativa corta que dejaste escrita.</p></div>
+      </details>
+      <details>
+        <summary>¿Por qué pagar si hay consejos gratis?</summary>
+        <div class="a"><p>Encontrar la información es fácil. Decidir cuál aplicar primero, traducirla a tu rutina y sostenerla una semana es el trabajo. Eso es lo que compras: la selección, el orden, el formato para completar y los protocolos para cuando la noche se sale del plan.</p></div>
+      </details>
+      <details>
+        <summary>¿Cuándo y cómo lo recibo?</summary>
+        <div class="a"><p>Cuando Hotmart aprueba el pago, recibes el acceso en el correo de la compra y entras a tu área de miembros. Revisa también la carpeta de spam.</p></div>
+      </details>
+      <details>
+        <summary>¿Cómo pido el reembolso?</summary>
+        <div class="a"><p>En el <a href="https://refund.hotmart.com/" target="_blank" rel="noopener">portal de reembolsos de Hotmart</a>, dentro de los 15 días, con tu código de transacción. No tienes que justificar tu decisión.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="closing">
+  <div class="wrap">
+    <h2 class="rv">Esta noche va a llegar igual.</h2>
+    <p class="lead rv">La única pregunta es si te encuentra improvisando otra vez.</p>
+    <div class="cta-block cta-center rv">
+      <a class="btn js-cta" data-loc="cierre" href="https://pay.hotmart.com/V107472709O" rel="noopener">Quiero mi plan para esta noche <span class="arw" aria-hidden="true">→</span></a>
+      <p class="cta-micro">Pago único de <span class="p-txt">MX$190.81</span> · 15 días para pedir reembolso</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-brand">Noches en Calma</div>
+      <nav class="f-links" aria-label="Información legal">
+        <a href="terminos.html">Condiciones y reembolsos</a>
+        <a href="privacidad.html">Privacidad</a>
+        <a href="fuentes.html">Fuentes y límites</a>
+        <button id="privacy-settings" hidden style="background:none;border:0;color:rgba(248,245,238,.66);font:inherit;cursor:pointer;padding:0">Preferencias de privacidad</button>
+      </nav>
+    </div>
+    <div class="f-legal">
+      <p>Noches en Calma es material educativo para adultos sobre hábitos cotidianos del final del día. <strong>No diagnostica, previene ni trata el insomnio u otros trastornos del sueño, y no sustituye la consulta, el diagnóstico ni el tratamiento de un profesional de la salud.</strong> Si tienes dificultades persistentes, severas o que afectan tu vida diaria, busca atención profesional.</p>
+      <p>La compra se realiza en Hotmart, que procesa el pago en nombre del productor y aplica sus propias condiciones. Los datos del proveedor y el contacto de soporte aparecen en el checkout y en tu comprobante de compra.</p>
+      <p>Esta página no está afiliada, patrocinada ni respaldada por Meta Platforms, Inc.</p>
+      <p>© <span id="yr">2026</span> Noches en Calma<span id="seller-contact"></span></p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky">
+  <div class="sticky-txt">
+    <b><span class="p-txt">MX$190.81</span></b>
+    <span>Pago único · 15 días de reembolso</span>
+  </div>
+  <a class="btn js-cta" data-loc="sticky" href="https://pay.hotmart.com/V107472709O" rel="noopener">Quiero mi plan</a>
+</div>
+
+<aside class="cookie" id="cookie" hidden aria-label="Preferencias de privacidad">
+  <p>Usamos medición publicitaria opcional (Meta) para saber si nuestros anuncios funcionan. Puedes rechazarla y seguir igual. <a href="privacidad.html">Más información</a>.</p>
+  <div>
+    <button type="button" id="ck-no">Rechazar</button>
+    <button type="button" id="ck-yes" class="pri">Aceptar</button>
+  </div>
+</aside>
+
+<script>
+/* ================= CONFIGURACIÓN — editar solo aquí ================= */
+window.NEC = {
+  checkoutBase : "https://pay.hotmart.com/V107472709O",
+  offerCode    : "",            /* vacío = oferta base del producto */
+  priceText    : "MX$190.81",
+  priceValue   : 190.81,
+  metaPixelId  : "",            /* pega aquí el ID del Pixel cuando lo tengas */
+  sellerContact: ""             /* opcional: contacto público del proveedor  */
+};
+</script>
+
+<script>
+(function(){
+  "use strict";
+  var C = window.NEC || {};
+
+  if (C.priceText) document.querySelectorAll('.p-txt, #p-hero').forEach(function(el){ el.textContent = C.priceText; });
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  if (C.sellerContact) document.getElementById('seller-contact').textContent = ' · ' + C.sellerContact;
+
+  /* ---------- checkout con paso de parámetros ---------- */
+  var qs = new URLSearchParams(location.search);
+  function buildCheckout(loc){
+    var u = new URL(C.checkoutBase);
+    if (C.offerCode) u.searchParams.set('off', C.offerCode);
+    ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','ttclid','gclid'].forEach(function(k){
+      if (qs.get(k)) u.searchParams.set(k, qs.get(k));
+    });
+    var sck = [qs.get('utm_source')||'direct', qs.get('utm_campaign')||'na', qs.get('utm_content')||'na', loc||'na']
+              .join('|').replace(/[^A-Za-z0-9|_\-.]/g,'').slice(0,120);
+    u.searchParams.set('sck', sck);
+    if (qs.get('src')) u.searchParams.set('src', qs.get('src'));
+    return u.toString();
+  }
+
+  document.querySelectorAll('.js-cta').forEach(function(a){
+    if (a.getAttribute('href') === '#oferta') return;
+    a.setAttribute('href', buildCheckout(a.dataset.loc));
+    a.setAttribute('rel','noopener');
+  });
+
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('.js-cta');
+    if (!a || (a.getAttribute('href')||'').indexOf('pay.hotmart.com') === -1) return;
+    if (window.fbq) { try { fbq('track','InitiateCheckout',{content_name:'Noches en Calma', value:C.priceValue, currency:'MXN'}); } catch(_){} }
+  }, true);
+
+  /* ---------- selector de noche ---------- */
+  var PLANS = {
+    L:{tag:'Letra L · Libera', title:'Tu cabeza necesita un lugar antes que la almohada',
+       pri:'Sacar de la cabeza lo que quedó abierto, antes de acostarte.',
+       act:'Escribir tres líneas: qué quedó pendiente y cuál es el primer paso de mañana.',
+       when:'Al cerrar la laptop, en la mesa, con una hoja que ya dejaste ahí.',
+       alt:'Si tengo prisa, escribo una sola línea: el primer paso de mañana.',
+       rev:'¿Lo hice? ¿Llegué a la cama con menos cosas dando vueltas?'},
+    A1:{tag:'Letra A · Atenúa', title:'Baja el estímulo antes de bajar la luz',
+       pri:'Darle al celular un lugar que no sea tu mano ni el buró.',
+       act:'Dejarlo en su lugar de carga, lejos de la cama.',
+       when:'Al terminar de cenar, en el mismo enchufe de siempre.',
+       alt:'Si espero una llamada, lo dejo boca abajo del otro lado del cuarto con ese contacto habilitado.',
+       rev:'¿Cuánto tardé en acostarme después? ¿Lo fui a buscar?'},
+    C:{tag:'Letra C · Constancia', title:'El ancla no es la hora de dormir: es la de despertar',
+       pri:'Fijar una sola referencia estable para toda la semana.',
+       act:'Poner una única alarma, la misma de lunes a domingo.',
+       when:'Hoy, antes de acostarte, mientras lo tienes en la cabeza.',
+       alt:'Si una hora exacta es imposible, elijo una ventana de 30 minutos.',
+       rev:'¿Me levanté dentro de esa ventana? ¿Qué lo hizo difícil?'},
+    M:{tag:'Letra M · Mueve la vigilia', title:'Deja de pelear con la cama a las tres de la mañana',
+       pri:'Tener decidido de antemano qué harás si despiertas y no vuelve el sueño.',
+       act:'Dejar lista una opción tranquila fuera de la cama: una silla, luz baja, algo de leer.',
+       when:'Antes de acostarte, hoy. No a las 3:00 improvisando.',
+       alt:'Si levantarme no es seguro, me quedo sentado con luz muy baja y sin pantalla.',
+       rev:'¿Usé la opción o me quedé contando las horas que faltaban?'},
+    A2:{tag:'Letra A · Ajusta', title:'Una molestia menos, no un cuarto perfecto',
+       pri:'Quitar una sola fricción física del cuarto.',
+       act:'Tapar o apagar una luz encendida: módem, cargador, reloj, barra de la TV.',
+       when:'Ahora mismo, antes de que se te olvide.',
+       alt:'Si no puedo taparla, uso un antifaz o giro el aparato hacia la pared.',
+       rev:'¿Noté alguna diferencia, o conviene probar otra cosa?'},
+    X:{tag:'Cuando aparecen varias', title:'Empieza por la que más se repitió esta semana',
+       pri:'Elegir una sola: la que apareció más días en los últimos siete.',
+       act:'El Mapa CALMA hace exactamente eso: cinco frases, de 0 a 2, y sale una letra.',
+       when:'En los primeros tres minutos, apenas abras la guía.',
+       alt:'Si dos empatan, empieza por la que te cueste menos preparar hoy.',
+       rev:'¿La practiqué? Solo cuando se sostenga conviene sumar la siguiente.'}
+  };
+  var res = document.getElementById('result');
+  document.querySelectorAll('.opt').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('.opt').forEach(function(o){ o.setAttribute('aria-pressed','false'); });
+      b.setAttribute('aria-pressed','true');
+      var p = PLANS[b.dataset.k]; if(!p) return;
+      document.getElementById('r-tag').textContent  = p.tag;
+      document.getElementById('r-title').textContent= p.title;
+      document.getElementById('r-pri').textContent  = p.pri;
+      document.getElementById('r-act').textContent  = p.act;
+      document.getElementById('r-when').textContent = p.when;
+      document.getElementById('r-alt').textContent  = p.alt;
+      document.getElementById('r-rev').textContent  = p.rev;
+      res.hidden = false;
+      if (window.fbq) { try { fbq('trackCustom','SelectorNoche',{opcion:b.dataset.k}); } catch(_){} }
+    });
+  });
+
+  /* ---------- barra fija + apariciones ---------- */
+  var sticky = document.getElementById('sticky');
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(en){
+      sticky.classList.toggle('on', !en[0].isIntersecting);
+    }, {rootMargin:'-70% 0px 0px 0px'}).observe(document.getElementById('top'));
+
+    var rvo = new IntersectionObserver(function(en){
+      en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rvo.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:.06});
+    document.querySelectorAll('.rv').forEach(function(e){ rvo.observe(e); });
+    setTimeout(function(){
+      document.querySelectorAll('.rv:not(.in)').forEach(function(e){
+        if (e.getBoundingClientRect().top < window.innerHeight * 1.2) e.classList.add('in');
+      });
+    }, 1200);
+  } else {
+    document.querySelectorAll('.rv').forEach(function(e){ e.classList.add('in'); });
+    sticky.classList.add('on');
+  }
+
+  /* ---------- consentimiento + pixel ---------- */
+  function loadPixel(){
+    if (!C.metaPixelId || window.fbq) return;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', C.metaPixelId); fbq('track','PageView');
+    fbq('track','ViewContent',{content_name:'Noches en Calma', content_type:'product', value:C.priceValue, currency:'MXN'});
+  }
+  var ck = document.getElementById('cookie'), pref = null;
+  try { pref = localStorage.getItem('nec_ads'); } catch(_){}
+  if (C.metaPixelId) {
+    if (pref === 'yes') loadPixel();
+    else if (pref !== 'no') ck.hidden = false;
+    document.getElementById('privacy-settings').hidden = false;
+  }
+  function setPref(v){ try { localStorage.setItem('nec_ads', v); } catch(_){} ck.hidden = true; if (v === 'yes') loadPixel(); }
+  document.getElementById('ck-yes').addEventListener('click', function(){ setPref('yes'); });
+  document.getElementById('ck-no').addEventListener('click',  function(){ setPref('no');  });
+  document.getElementById('privacy-settings').addEventListener('click', function(){ ck.hidden = false; });
+})();
+</script>
+</body>
+</html>
