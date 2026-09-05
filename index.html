@@ -13,34 +13,25 @@
 <meta property="og:title" content="La noche empieza antes de acostarte">
 <meta property="og:description" content="Una prioridad. Una acción. Un momento. Siete noches de práctica.">
 <meta property="og:url" content="https://nochesencalma.online/">
-<meta property="og:image" content="https://nochesencalma.online/assets/cover.png">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="assets/cover.png" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ============ TOKENS ============ */
 :root{
   color-scheme: light;
-  --ink:#0B1E25; --ink-2:#12303A; --ink-3:#1C4551;
+  --ink:#0B1E25; --ink-2:#12303A;
   --paper:#FBF8F2; --paper-2:#F3EDE1; --paper-3:#EAE2D2;
   --gold:#B8863F; --gold-soft:#E7CFA4;
-  --sage:#8FB6A3;
   --text:#15303A; --text-2:#42606A; --muted:#6B838C;
   --line:#DCD2C0; --line-dark:rgba(231,207,164,.22);
-  --radius:14px;
-  --wrap:1120px;
+  --radius:14px; --wrap:1120px;
   --ease:cubic-bezier(.22,.8,.28,1);
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{
-  margin:0;background:var(--paper);color:var(--text);
-  font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden;
-}
+body{margin:0;background:var(--paper);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit}
 h1,h2,h3{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-.015em;line-height:1.1;margin:0;text-wrap:balance}
@@ -54,16 +45,7 @@ section{padding:clamp(54px,7.6vw,96px) 0}
 .eyebrow{font-family:'Inter',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.19em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
 .lead{font-size:clamp(1.05rem,2.1vw,1.2rem);line-height:1.58;color:var(--text-2)}
 
-/* ============ BUTTONS ============ */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:.6em;
-  background:linear-gradient(178deg,#C9954A,#A97430);color:#FFF9EE;
-  font-family:'Inter',sans-serif;font-weight:600;font-size:1.03rem;
-  padding:19px 30px;border-radius:100px;border:0;text-decoration:none;cursor:pointer;
-  box-shadow:0 10px 26px -12px rgba(150,100,35,.75), inset 0 1px 0 rgba(255,255,255,.28);
-  transition:transform .22s var(--ease), box-shadow .22s var(--ease);
-  text-align:center;line-height:1.25;
-}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;background:linear-gradient(178deg,#C9954A,#A97430);color:#FFF9EE;font-family:'Inter',sans-serif;font-weight:600;font-size:1.03rem;padding:19px 30px;border-radius:100px;border:0;text-decoration:none;cursor:pointer;box-shadow:0 10px 26px -12px rgba(150,100,35,.75), inset 0 1px 0 rgba(255,255,255,.28);transition:transform .22s var(--ease), box-shadow .22s var(--ease);text-align:center;line-height:1.25}
 .btn:hover{transform:translateY(-2px);box-shadow:0 16px 32px -12px rgba(150,100,35,.85), inset 0 1px 0 rgba(255,255,255,.3)}
 .btn:active{transform:translateY(0)}
 .btn .arw{transition:transform .22s var(--ease)}
@@ -76,7 +58,6 @@ section{padding:clamp(54px,7.6vw,96px) 0}
 .cta-center{text-align:center;display:flex;flex-direction:column;align-items:center}
 .cta-center .cta-micro{margin-inline:auto}
 
-/* ============ TOP ============ */
 .topline{background:var(--ink);color:rgba(248,245,238,.6);font-size:.71rem;letter-spacing:.05em;text-align:center;padding:9px 18px;line-height:1.45;border-bottom:1px solid rgba(231,207,164,.13)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:clamp(40px,6.5vw,68px)}
 .brand{font-family:'Fraunces',Georgia,serif;font-size:1.18rem;color:var(--paper);text-decoration:none}
@@ -84,12 +65,8 @@ section{padding:clamp(54px,7.6vw,96px) 0}
 .nav-in .btn-ghost{display:none}
 @media(min-width:820px){.nav-in .btn-ghost{display:inline-flex}}
 
-/* ============ HERO ============ */
 .hero{position:relative;background:var(--ink);color:var(--paper);overflow:hidden;padding:26px 0 clamp(52px,6.5vw,88px)}
-.hero::before{content:"";position:absolute;inset:0;
-  background:radial-gradient(120% 78% at 78% 6%, rgba(143,182,163,.13), transparent 58%),
-             radial-gradient(90% 62% at 8% 96%, rgba(184,134,63,.16), transparent 62%),
-             linear-gradient(172deg,#0B1E25 0%,#123039 58%,#0D2229 100%)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 78% at 78% 6%, rgba(143,182,163,.13), transparent 58%),radial-gradient(90% 62% at 8% 96%, rgba(184,134,63,.16), transparent 62%),linear-gradient(172deg,#0B1E25 0%,#123039 58%,#0D2229 100%)}
 .arcs{position:absolute;top:-16%;right:-30%;width:min(920px,120vw);opacity:.5;pointer-events:none}
 @media(min-width:900px){.arcs{right:-6%;top:-24%;width:760px;opacity:.62}}
 .hero .wrap{position:relative;z-index:2}
@@ -108,27 +85,28 @@ section{padding:clamp(54px,7.6vw,96px) 0}
 @media(min-width:560px){.art{max-width:360px}}
 @media(min-width:940px){.art{max-width:430px}}
 .art-glow{position:absolute;inset:-14% -10% -8%;background:radial-gradient(50% 50% at 50% 45%,rgba(231,207,164,.20),transparent 68%);filter:blur(6px)}
-.art img{position:relative;border-radius:6px;box-shadow:0 40px 80px -34px rgba(0,0,0,.85), 0 0 0 1px rgba(231,207,164,.16);transform:rotate(-1.6deg)}
+.art .cover{position:relative;display:block;width:100%;height:auto;border-radius:6px;box-shadow:0 40px 80px -34px rgba(0,0,0,.85), 0 0 0 1px rgba(231,207,164,.16);transform:rotate(-1.6deg)}
+.cv-t{font-family:'Fraunces',Georgia,serif;font-size:62px;fill:#F5F1E6;font-variation-settings:'opsz' 144,'SOFT' 6}
+.cv-eye{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:1.6px;fill:#A9C4B4}
+.cv-s{font-family:'Inter',sans-serif;font-size:17px;fill:#E6E1D5}
+.cv-f{font-family:'Inter',sans-serif;font-size:11px;fill:#9FB4B8}
 .plan-float{position:relative;margin:-56px 0 0 auto;width:min(300px,88%);background:var(--paper);color:var(--text);border-radius:12px;padding:16px 18px;box-shadow:0 26px 52px -22px rgba(0,0,0,.7);transform:rotate(1.4deg);font-size:.83rem;line-height:1.45}
 .plan-float .pf-l{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:7px}
 .plan-float b{display:block;font-family:'Fraunces',Georgia,serif;font-size:1.02rem;font-weight:400;line-height:1.3;margin-bottom:6px}
 .plan-float span{color:var(--text-2)}
 
-/* ============ QUOTES ============ */
 .quotes{display:grid;gap:11px;margin:30px 0 0}
 @media(min-width:760px){.quotes{grid-template-columns:1fr 1fr;gap:13px}}
 .q{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px 18px 42px;font-size:1rem;line-height:1.5;position:relative;margin:0}
-.q::before{content:"“";position:absolute;left:17px;top:12px;font-family:'Fraunces',Georgia,serif;font-size:2rem;color:var(--gold-soft);line-height:1}
+.q::before{content:"\201C";position:absolute;left:17px;top:12px;font-family:'Fraunces',Georgia,serif;font-size:2rem;color:var(--gold-soft);line-height:1}
 .after-quotes{margin:26px 0 0;padding:20px 22px;border-left:3px solid var(--gold);background:var(--paper-2);border-radius:0 var(--radius) var(--radius) 0;font-size:1.05rem;line-height:1.55}
 
-/* ============ PROBLEM ============ */
 .problem{background:var(--paper-2)}
 .two{display:grid;gap:clamp(22px,3.5vw,50px)}
 @media(min-width:900px){.two{grid-template-columns:.92fr 1.08fr;align-items:start}}
 .pull{font-family:'Fraunces',Georgia,serif;font-size:clamp(1.18rem,2.5vw,1.45rem);line-height:1.4;color:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;margin:24px 0 0}
 .pull b{font-weight:600;color:var(--gold)}
 
-/* ============ METHOD ============ */
 .method{background:var(--ink-2);color:var(--paper);position:relative;overflow:hidden}
 .method::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 92% 4%,rgba(143,182,163,.10),transparent 60%);pointer-events:none}
 .method .wrap{position:relative;z-index:2}
@@ -144,7 +122,6 @@ section{padding:clamp(54px,7.6vw,96px) 0}
 .step .ex{margin-top:auto;padding-top:11px;border-top:1px solid var(--line-dark);font-size:.82rem;color:rgba(143,182,163,.9);font-style:italic}
 .method-note{margin-top:22px;font-size:.84rem;color:rgba(248,245,238,.45);max-width:66ch}
 
-/* ============ PICKER ============ */
 .picker{display:grid;gap:9px;margin:28px 0 0}
 @media(min-width:760px){.picker{grid-template-columns:1fr 1fr}}
 .opt{display:flex;align-items:center;gap:13px;text-align:left;width:100%;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;font-family:inherit;font-size:.98rem;line-height:1.4;color:var(--text);cursor:pointer;transition:border-color .2s var(--ease),background .2s var(--ease),transform .2s var(--ease)}
@@ -165,7 +142,6 @@ section{padding:clamp(54px,7.6vw,96px) 0}
 .row .v{font-size:.99rem;line-height:1.48;color:var(--text)}
 .plan-foot{background:var(--paper-2);padding:13px 22px;font-size:.79rem;color:var(--muted);line-height:1.45}
 
-/* ============ CARDS ============ */
 .cards{display:grid;gap:13px;margin-top:36px}
 @media(min-width:680px){.cards{grid-template-columns:1fr 1fr}}
 @media(min-width:1000px){.cards{grid-template-columns:repeat(3,1fr)}}
@@ -173,19 +149,17 @@ section{padding:clamp(54px,7.6vw,96px) 0}
 .card p{color:var(--text-2);font-size:.94rem;line-height:1.52;margin:0}
 .card .fmt{margin-top:auto;padding-top:12px;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 
-/* ============ TOC ============ */
 .toc{margin-top:30px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;overflow:hidden}
 .toc summary{cursor:pointer;padding:18px 22px;font-weight:600;font-size:.96rem;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px}
 .toc summary::-webkit-details-marker{display:none}
 .toc summary::after{content:"+";font-family:'Fraunces',serif;font-size:1.4rem;color:var(--gold);line-height:1}
-.toc[open] summary::after{content:"–"}
+.toc[open] summary::after{content:"\2013"}
 .toc-in{padding:0 22px 22px;border-top:1px solid var(--paper-3)}
 .toc-list{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:6px;font-size:.88rem;color:var(--text-2)}
 @media(min-width:720px){.toc-list{grid-template-columns:1fr 1fr;gap:6px 30px}}
 .toc-list li{display:flex;gap:10px;line-height:1.45}
 .toc-list b{color:var(--gold);font-weight:600;font-variant-numeric:tabular-nums;flex:0 0 auto;font-size:.8rem;padding-top:.08em}
 
-/* ============ TIMELINE ============ */
 .first5{background:var(--paper-2)}
 .tl{display:grid;gap:1px;margin-top:36px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
 @media(min-width:820px){.tl{grid-template-columns:repeat(4,1fr)}}
@@ -194,7 +168,6 @@ section{padding:clamp(54px,7.6vw,96px) 0}
 .tl-i h3{font-size:1.04rem}
 .tl-i p{font-size:.9rem;color:var(--text-2);line-height:1.5;margin:0}
 
-/* ============ FIT ============ */
 .fit{display:grid;gap:14px;margin-top:34px}
 @media(min-width:820px){.fit{grid-template-columns:1fr 1fr;gap:18px}}
 .fit-col{border-radius:var(--radius);padding:26px 24px;border:1px solid var(--line);background:#fff}
@@ -208,14 +181,12 @@ section{padding:clamp(54px,7.6vw,96px) 0}
 .fit-col li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold-soft);flex:0 0 auto;margin-top:.52em}
 .fit-note{margin:22px 0 0;font-size:.96rem;line-height:1.55;color:var(--text);background:#fff;border:1px dashed var(--gold-soft);border-radius:var(--radius);padding:19px 21px}
 
-/* ============ TRANSPARENCY ============ */
 .transp{background:var(--ink);color:var(--paper)}
 .transp h2{color:var(--paper)}
-.transp p{color:rgba(248,245,238,.7)}
+.transp .lead{color:rgba(248,245,238,.7)}
 .transp .box{border:1px solid var(--line-dark);border-radius:var(--radius);padding:24px;margin-top:24px;background:rgba(255,255,255,.028)}
 .transp .box p{margin:0;color:rgba(248,245,238,.78)}
 
-/* ============ OFFER ============ */
 .offer{background:var(--ink-2);color:var(--paper);position:relative;overflow:hidden}
 .offer::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 62% at 14% 100%,rgba(184,134,63,.20),transparent 62%);pointer-events:none}
 .offer .wrap{position:relative;z-index:2}
@@ -233,7 +204,6 @@ section{padding:clamp(54px,7.6vw,96px) 0}
 .pay{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
 .pay span{font-size:.72rem;letter-spacing:.04em;color:var(--text-2);border:1px solid var(--line);border-radius:100px;padding:5px 11px;background:#fff}
 
-/* ============ GUARANTEE ============ */
 .guar{background:var(--paper-2)}
 .guar-box{display:grid;gap:24px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(26px,3.8vw,42px)}
 @media(min-width:820px){.guar-box{grid-template-columns:126px 1fr;gap:36px}}
@@ -242,31 +212,27 @@ section{padding:clamp(54px,7.6vw,96px) 0}
 .guar-box p{color:var(--text-2);font-size:.98rem;margin:0}
 .guar-box a{color:var(--gold);text-underline-offset:3px}
 
-/* ============ SAFETY ============ */
 .safety-box{border:1px solid var(--line);border-radius:var(--radius);background:#fff;padding:clamp(22px,3.2vw,32px);margin-top:30px}
 .safety-box h3{margin-bottom:13px}
 .safety-box ul{margin:0;padding-left:19px;color:var(--text-2);display:grid;gap:7px;font-size:.96rem}
 .safety-box .fine{margin:16px 0 0;font-size:.9rem;color:var(--muted);line-height:1.55}
 
-/* ============ FAQ ============ */
 .faq{margin-top:32px;border-top:1px solid var(--line)}
 .faq details{border-bottom:1px solid var(--line)}
 .faq summary{cursor:pointer;list-style:none;padding:20px 40px 20px 0;position:relative;font-weight:500;font-size:1.02rem;line-height:1.4;color:var(--text)}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary::after{content:"+";position:absolute;right:6px;top:18px;font-family:'Fraunces',serif;font-size:1.4rem;color:var(--gold);line-height:1}
-.faq details[open] summary::after{content:"–"}
+.faq details[open] summary::after{content:"\2013"}
 .faq .a{padding:0 0 21px;color:var(--text-2);font-size:.98rem;line-height:1.6;max-width:68ch}
 .faq .a p{margin:0}
 .faq .a a{color:var(--gold)}
 
-/* ============ CLOSING ============ */
 .closing{background:var(--ink);color:var(--paper);text-align:center;position:relative;overflow:hidden}
 .closing::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 108%,rgba(184,134,63,.24),transparent 66%);pointer-events:none}
 .closing .wrap{position:relative;z-index:2}
 .closing h2{color:var(--paper);max-width:17ch;margin-inline:auto}
 .closing .lead{color:rgba(248,245,238,.68);max-width:46ch;margin:20px auto 0}
 
-/* ============ FOOTER ============ */
 footer{background:#08171C;color:rgba(248,245,238,.52);font-size:.83rem;padding:46px 0 120px}
 @media(min-width:900px){footer{padding-bottom:46px}}
 .f-top{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid rgba(231,207,164,.12)}
@@ -277,7 +243,6 @@ footer{background:#08171C;color:rgba(248,245,238,.52);font-size:.83rem;padding:4
 .f-legal{margin-top:20px;line-height:1.6;max-width:76ch;color:rgba(248,245,238,.42);font-size:.78rem}
 .f-legal p{margin:0 0 .65em}
 
-/* ============ STICKY ============ */
 .sticky{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(11,30,37,.96);backdrop-filter:blur(12px);border-top:1px solid rgba(231,207,164,.2);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;transform:translateY(110%);transition:transform .32s var(--ease)}
 .sticky.on{transform:translateY(0)}
 .sticky-txt{flex:1;min-width:0;color:var(--paper);line-height:1.25}
@@ -286,7 +251,6 @@ footer{background:#08171C;color:rgba(248,245,238,.52);font-size:.83rem;padding:4
 .sticky .btn{padding:14px 20px;font-size:.92rem;flex:0 0 auto}
 @media(min-width:900px){.sticky{display:none}}
 
-/* ============ COOKIE ============ */
 .cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:70;max-width:410px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:17px 19px;box-shadow:0 20px 50px -20px rgba(0,0,0,.45);font-size:.84rem;line-height:1.5}
 .cookie[hidden]{display:none}
 .cookie p{margin:0 0 13px;color:var(--text-2)}
@@ -295,7 +259,6 @@ footer{background:#08171C;color:rgba(248,245,238,.52);font-size:.83rem;padding:4
 .cookie button{flex:1;border-radius:100px;border:1px solid var(--line);background:#fff;color:var(--text);padding:9px 12px;font-family:inherit;font-size:.82rem;font-weight:500;cursor:pointer}
 .cookie button.pri{background:var(--ink-2);color:var(--paper);border-color:var(--ink-2)}
 
-/* ============ MOTION ============ */
 .rv{transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .js .rv{opacity:0;transform:translateY(18px)}
 .js .rv.in{opacity:1;transform:none}
@@ -348,7 +311,29 @@ footer{background:#08171C;color:rgba(248,245,238,.52);font-size:.83rem;padding:4
       </div>
       <div class="art">
         <div class="art-glow" aria-hidden="true"></div>
-        <img src="assets/cover.png" width="1191" height="1684" alt="Portada de la guía Noches en Calma" fetchpriority="high">
+        <svg class="cover" viewBox="0 0 595 842" role="img" aria-label="Portada de la guía Noches en Calma, edición de lanzamiento">
+          <defs>
+            <linearGradient id="cv" x1="0" y1="0" x2=".3" y2="1">
+              <stop offset="0" stop-color="#153842"/><stop offset="1" stop-color="#0E262E"/>
+            </linearGradient>
+          </defs>
+          <rect width="595" height="842" fill="url(#cv)"/>
+          <g fill="none" stroke="#8FB6A3" stroke-opacity=".17">
+            <circle cx="452" cy="292" r="108"/><circle cx="452" cy="292" r="168"/>
+            <circle cx="452" cy="292" r="228"/><circle cx="452" cy="292" r="288"/>
+          </g>
+          <path d="M470 137a52 52 0 1 0 51 64 41 41 0 1 1-51-64Z" fill="#A9C4B4"/>
+          <text class="cv-eye" x="52" y="64">GUÍA PRÁCTICA DE HÁBITOS NOCTURNOS</text>
+          <text class="cv-t" x="50" y="378">Noches</text>
+          <text class="cv-t" x="50" y="452">en Calma</text>
+          <line x1="52" y1="494" x2="152" y2="494" stroke="#8FB6A3" stroke-opacity=".5"/>
+          <text class="cv-s" x="52" y="542">Una prioridad.</text>
+          <text class="cv-s" x="52" y="568">Un plan para esta noche.</text>
+          <text class="cv-s" x="52" y="594">Siete días de práctica.</text>
+          <text class="cv-eye" x="52" y="740">EDICIÓN DE LANZAMIENTO · MÉXICO</text>
+          <text class="cv-f" x="52" y="768">Educación para adultos. No diagnostica ni</text>
+          <text class="cv-f" x="52" y="784">sustituye atención profesional.</text>
+        </svg>
         <div class="plan-float" aria-hidden="true">
           <div class="pf-l">Plan para esta noche</div>
           <b>El celular va a su lugar de carga</b>
@@ -361,7 +346,6 @@ footer{background:#08171C;color:rgba(248,245,238,.52);font-size:.83rem;padding:4
 
 <main id="contenido">
 
-<!-- IDENTIFICACIÓN -->
 <section>
   <div class="wrap">
     <h2 class="narrow rv">¿Reconoces alguna?</h2>
@@ -377,7 +361,6 @@ footer{background:#08171C;color:rgba(248,245,238,.52);font-size:.83rem;padding:4
   </div>
 </section>
 
-<!-- PROBLEMA -->
 <section class="problem">
   <div class="wrap two">
     <div class="rv">
@@ -392,7 +375,6 @@ footer{background:#08171C;color:rgba(248,245,238,.52);font-size:.83rem;padding:4
   </div>
 </section>
 
-<!-- MÉTODO -->
 <section class="method">
   <div class="wrap">
     <div class="narrow rv">
@@ -411,7 +393,6 @@ footer{background:#08171C;color:rgba(248,245,238,.52);font-size:.83rem;padding:4
   </div>
 </section>
 
-<!-- DEMOSTRACIÓN -->
 <section>
   <div class="wrap">
     <div class="narrow rv">
@@ -449,7 +430,6 @@ footer{background:#08171C;color:rgba(248,245,238,.52);font-size:.83rem;padding:4
   </div>
 </section>
 
-<!-- QUÉ RECIBES -->
 <section class="problem">
   <div class="wrap">
     <div class="narrow rv">
@@ -497,7 +477,6 @@ footer{background:#08171C;color:rgba(248,245,238,.52);font-size:.83rem;padding:4
   </div>
 </section>
 
-<!-- PRIMEROS 5 MINUTOS -->
 <section class="first5">
   <div class="wrap">
     <div class="narrow rv">
@@ -517,7 +496,6 @@ footer{background:#08171C;color:rgba(248,245,238,.52);font-size:.83rem;padding:4
   </div>
 </section>
 
-<!-- PARA QUIÉN -->
 <section>
   <div class="wrap">
     <h2 class="narrow rv">No es para todos.</h2>
@@ -534,7 +512,7 @@ footer{background:#08171C;color:rgba(248,245,238,.52);font-size:.83rem;padding:4
       <div class="fit-col no">
         <h3><span class="ic" aria-hidden="true">✕</span> No, si…</h3>
         <ul>
-          <li>Buscas tratamiento para un insomnio crónico diagnosticado, o terapia (CBT‑I).</li>
+          <li>Buscas tratamiento para un insomnio crónico diagnosticado, o terapia (CBT-I).</li>
           <li>Trabajas en turnos rotativos o nocturnos.</li>
           <li>Cuidas a un bebé o a alguien que despierta varias veces.</li>
           <li>Tienes ronquidos con pausas al respirar, ahogos o somnolencia intensa de día.</li>
@@ -545,18 +523,16 @@ footer{background:#08171C;color:rgba(248,245,238,.52);font-size:.83rem;padding:4
   </div>
 </section>
 
-<!-- TRANSPARENCIA -->
 <section class="transp">
   <div class="wrap narrow">
     <h2 class="rv">Aquí no hay testimonios.</h2>
-    <p class="lead rv" style="color:rgba(248,245,238,.7)">Es un lanzamiento. Todavía no tenemos compradores suficientes para mostrar resultados sin inventarlos, y no vamos a inventarlos.</p>
+    <p class="lead rv">Es un lanzamiento. Todavía no tenemos compradores suficientes para mostrar resultados sin inventarlos, y no vamos a inventarlos.</p>
     <div class="box rv">
       <p>Lo que sí puedes revisar antes de pagar: el índice completo de las 22 páginas, el formato exacto del plan y los seis protocolos por su nombre. Y si aun así no te sirve, tienes 15 días para pedir el reembolso sin dar explicaciones.</p>
     </div>
   </div>
 </section>
 
-<!-- OFERTA -->
 <section class="offer" id="oferta">
   <div class="wrap">
     <div class="narrow rv">
@@ -588,7 +564,6 @@ footer{background:#08171C;color:rgba(248,245,238,.52);font-size:.83rem;padding:4
   </div>
 </section>
 
-<!-- GARANTÍA -->
 <section class="guar">
   <div class="wrap">
     <div class="guar-box rv">
@@ -606,7 +581,6 @@ footer{background:#08171C;color:rgba(248,245,238,.52);font-size:.83rem;padding:4
   </div>
 </section>
 
-<!-- SEGURIDAD -->
 <section>
   <div class="wrap">
     <div class="narrow rv">
@@ -621,19 +595,18 @@ footer{background:#08171C;color:rgba(248,245,238,.52);font-size:.83rem;padding:4
         <li>Dolor, malestar importante o cambios notables en el ánimo.</li>
         <li>Somnolencia al conducir o al manejar equipo: no conduzcas con sueño.</li>
       </ul>
-      <p class="fine">Noches en Calma no diagnostica, previene ni trata enfermedades; no es terapia cognitivo‑conductual para el insomnio; no recomienda suplementos ni cambios de medicación; y no promete un resultado de sueño concreto.</p>
+      <p class="fine">Noches en Calma no diagnostica, previene ni trata enfermedades; no es terapia cognitivo-conductual para el insomnio; no recomienda suplementos ni cambios de medicación; y no promete un resultado de sueño concreto.</p>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
 <section class="problem">
   <div class="wrap narrow">
     <h2 class="rv">Antes de decidir</h2>
     <div class="faq rv">
       <details>
         <summary>¿Es un tratamiento para el insomnio?</summary>
-        <div class="a"><p>No. Es material educativo para organizar hábitos nocturnos. El tratamiento de referencia para el insomnio crónico es la terapia cognitivo‑conductual (CBT‑I), y se hace con un profesional, no con un PDF.</p></div>
+        <div class="a"><p>No. Es material educativo para organizar hábitos nocturnos. El tratamiento de referencia para el insomnio crónico es la terapia cognitivo-conductual (CBT-I), y se hace con un profesional, no con un PDF.</p></div>
       </details>
       <details>
         <summary>¿Voy a dormir mejor desde la primera noche?</summary>
@@ -659,7 +632,6 @@ footer{background:#08171C;color:rgba(248,245,238,.52);font-size:.83rem;padding:4
   </div>
 </section>
 
-<!-- CIERRE -->
 <section class="closing">
   <div class="wrap">
     <h2 class="rv">Esta noche va a llegar igual.</h2>
@@ -710,14 +682,14 @@ footer{background:#08171C;color:rgba(248,245,238,.52);font-size:.83rem;padding:4
 </aside>
 
 <script>
-/* ================= CONFIGURACIÓN — editar solo aquí ================= */
+/* ===== CONFIGURACIÓN — editar solo aquí ===== */
 window.NEC = {
   checkoutBase : "https://pay.hotmart.com/V107472709O",
-  offerCode    : "",            /* vacío = oferta base del producto */
+  offerCode    : "",
   priceText    : "MX$190.81",
   priceValue   : 190.81,
-  metaPixelId  : "",            /* pega aquí el ID del Pixel cuando lo tengas */
-  sellerContact: ""             /* opcional: contacto público del proveedor  */
+  metaPixelId  : "",
+  sellerContact: ""
 };
 </script>
 
@@ -730,7 +702,6 @@ window.NEC = {
   document.getElementById('yr').textContent = new Date().getFullYear();
   if (C.sellerContact) document.getElementById('seller-contact').textContent = ' · ' + C.sellerContact;
 
-  /* ---------- checkout con paso de parámetros ---------- */
   var qs = new URLSearchParams(location.search);
   function buildCheckout(loc){
     var u = new URL(C.checkoutBase);
@@ -757,7 +728,6 @@ window.NEC = {
     if (window.fbq) { try { fbq('track','InitiateCheckout',{content_name:'Noches en Calma', value:C.priceValue, currency:'MXN'}); } catch(_){} }
   }, true);
 
-  /* ---------- selector de noche ---------- */
   var PLANS = {
     L:{tag:'Letra L · Libera', title:'Tu cabeza necesita un lugar antes que la almohada',
        pri:'Sacar de la cabeza lo que quedó abierto, antes de acostarte.',
@@ -814,7 +784,6 @@ window.NEC = {
     });
   });
 
-  /* ---------- barra fija + apariciones ---------- */
   var sticky = document.getElementById('sticky');
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function(en){
@@ -835,7 +804,6 @@ window.NEC = {
     sticky.classList.add('on');
   }
 
-  /* ---------- consentimiento + pixel ---------- */
   function loadPixel(){
     if (!C.metaPixelId || window.fbq) return;
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
