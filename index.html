@@ -688,7 +688,7 @@ window.NEC = {
   offerCode    : "",
   priceText    : "MX$190.81",
   priceValue   : 190.81,
-  metaPixelId  : "",
+  metaPixelId  : "2585039048618064",
   sellerContact: ""
 };
 </script>
@@ -725,7 +725,7 @@ window.NEC = {
   document.addEventListener('click', function(e){
     var a = e.target.closest('.js-cta');
     if (!a || (a.getAttribute('href')||'').indexOf('pay.hotmart.com') === -1) return;
-    if (window.fbq) { try { fbq('track','InitiateCheckout',{content_name:'Noches en Calma', value:C.priceValue, currency:'MXN'}); } catch(_){} }
+    if (window.fbq) { try { fbq('track','InitiateCheckout',{content_name:'Noches en Calma', content_type:'product', content_ids:['noches-en-calma'], value:C.priceValue, currency:'MXN'}); } catch(_){} }
   }, true);
 
   var PLANS = {
@@ -812,7 +812,7 @@ window.NEC = {
     t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
     (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', C.metaPixelId); fbq('track','PageView');
-    fbq('track','ViewContent',{content_name:'Noches en Calma', content_type:'product', value:C.priceValue, currency:'MXN'});
+    fbq('track','ViewContent',{content_name:'Noches en Calma', content_type:'product', content_ids:['noches-en-calma'], value:C.priceValue, currency:'MXN'});
   }
   var ck = document.getElementById('cookie'), pref = null;
   try { pref = localStorage.getItem('nec_ads'); } catch(_){}
