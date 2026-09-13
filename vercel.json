@@ -4,19 +4,130 @@
   "trailingSlash": false,
   "headers": [
     {
+      "source": "/descargas/(.*)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/pdf"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
+      ]
+    },
+    {
       "source": "/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "geolocation=(), microphone=(), camera=()"
+        }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/privacidad",
+      "destination": "/#privacidad",
+      "permanent": false
+    },
+    {
+      "source": "/terminos",
+      "destination": "/#condiciones",
+      "permanent": false
+    },
+    {
+      "source": "/fuentes",
+      "destination": "/#fuentes",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/assets/favicon.svg",
+      "destination": "/calma-favicon.svg"
+    },
+    {
+      "source": "/descargas/Ritual_CALMA_de_12_Minutos.pdf",
+      "destination": "/Ritual_CALMA_de_12_Minutos.pdf"
+    },
+    {
+      "source": "/assets/ritual/pagina-1.webp",
+      "destination": "/ritual-pagina-1.webp"
+    },
+    {
+      "source": "/assets/ritual/pagina-2.webp",
+      "destination": "/ritual-pagina-2.webp"
+    },
+    {
+      "source": "/assets/ritual/pagina-3.webp",
+      "destination": "/ritual-pagina-3.webp"
+    },
+    {
+      "source": "/assets/ritual/pagina-4.webp",
+      "destination": "/ritual-pagina-4.webp"
+    },
+    {
+      "source": "/assets/ritual/pagina-5.webp",
+      "destination": "/ritual-pagina-5.webp"
+    },
+    {
+      "source": "/assets/ritual/pagina-6.webp",
+      "destination": "/ritual-pagina-6.webp"
+    },
+    {
+      "source": "/assets/ritual/pagina-7.webp",
+      "destination": "/ritual-pagina-7.webp"
+    },
+    {
+      "source": "/assets/ritual/pagina-8.webp",
+      "destination": "/ritual-pagina-8.webp"
+    },
+    {
+      "source": "/assets/ritual/pagina-9.webp",
+      "destination": "/ritual-pagina-9.webp"
+    },
+    {
+      "source": "/assets/ritual/portada.webp",
+      "destination": "/ritual-portada.webp"
+    },
+    {
+      "source": "/assets/sistema/pagina-10.webp",
+      "destination": "/sistema-pagina-10.webp"
+    },
+    {
+      "source": "/assets/sistema/pagina-17.webp",
+      "destination": "/sistema-pagina-17.webp"
+    },
+    {
+      "source": "/assets/sistema/pagina-3.webp",
+      "destination": "/sistema-pagina-3.webp"
     }
   ]
 }
