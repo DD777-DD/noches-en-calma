@@ -1,58 +1,44 @@
 # Noches en Calma — landing page
 
-Site estático (HTML/CSS/JS puro, sem build) para `nochesencalma.online`.
-Envia o tráfego pago para o checkout Hotmart `V107472709O` (oferta base, MX$190.81).
+Site estático em espanhol mexicano: https://www.nochesencalma.online/
+Repositório DD777-DD/noches-en-calma, branch main, conectado à Vercel. Sem build.
 
 ## Arquivos
 
-| Arquivo | O que é |
-|---|---|
-| `index.html` | Landing page completa. Todo o CSS e JS estão inline: uma única requisição. |
-| `terminos.html` · `privacidad.html` · `fuentes.html` | Páginas legais linkadas no rodapé. |
-| `assets/` | Capa do produto, thumbnail para redes sociais, favicon, CSS das páginas legais. |
-| `vercel.json` | Cabeçalhos de cache e segurança. |
-| `creativos/` | Exportador de criativos + copy dos anúncios. **Não vai para o site** (`.vercelignore`). |
-| `_material/` | PDF do produto, apenas referência local. Fora do Git. |
+- index.html: página de venda, oferta, leitor expansível e informações comerciais.
+- styles.css: layout responsivo e movimento reduzido.
+- app.js: leitor, download, demonstrações, consentimento e atribuição.
+- ritual-pages.js: texto das nove páginas do Ritual e das amostras do sistema.
+- descargas/Ritual_CALMA_de_12_Minutos.pdf: original gratuito, preservado integralmente.
+- assets/ritual e assets/sistema: páginas reais renderizadas.
+- assets/ads: anúncios existentes preservados.
+- vercel.json: cabeçalhos e redirecionamento das páginas legais para a página única.
+- creativos: arquivos de campanha preservados, fora do deploy por .vercelignore.
 
-## Configuração — o único lugar a editar
+## Oferta e entrega
 
-No fim do `index.html`, o bloco `window.NEC`:
+Checkout https://pay.hotmart.com/V107472709O, oferta base. Total México MX$190.81, IVA incluído (164.49 + 26.32). Preço anterior MX$249 informado pelo produtor. Garantia de 15 dias conferida no checkout. Sem prazo de promoção inventado.
 
-```js
-window.NEC = {
-  checkoutBase : "https://pay.hotmart.com/V107472709O",
-  offerCode    : "",            // vazio = oferta base do produto
-  priceText    : "MX$190.81",
-  metaPixelId  : "",   // cole o ID do Pixel quando existir
-  sellerContact: ""    // contato público do fornecedor, se for publicar um
-};
-```
+Ritual gratuito sem compra ou cadastro. Leitor de nove páginas em texto e imagem; download original com verificação de tipo, tamanho e assinatura PDF. Não há formulário de e-mail.
 
-Mudou o preço na Hotmart? Troque só `priceText`: ele se aplica ao herói, à caixa de oferta, ao FAQ e à barra fixa do celular de uma vez.
+O sistema pago contém guia de 22 páginas, Mapa CALMA, plano, seis protocolos, sete dias de prática, registro e ferramenta HTML. Acesso vitalício à plataforma não foi confirmado e não é anunciado. Não há promessa de resultado médico.
 
-O Pixel só carrega depois do aceite no banner de privacidade. Com `metaPixelId` vazio, o banner nem aparece e nada é enviado ao Meta.
+## Medição
 
-## Rastreamento
+Pixel 2147764496116257, carregado somente no domínio real e após consentimento. PageView, RitualOpen, RitualPreviewPage, RitualPdfOpenRequested, RitualDownloadRequested, RitualFileReceived, OfferView/ViewContent e CheckoutClick/InitiateCheckout. Recebimento do arquivo não implica salvamento no disco. Compra aprovada deve vir da integração Hotmart–Meta, nunca do clique.
 
-A página repassa `utm_*`, `fbclid`, `gclid` e `ttclid` ao checkout e monta o parâmetro `sck` da Hotmart no formato `origem|campanha|criativo|botão`. Assim o relatório da Hotmart mostra qual criativo e qual botão geraram cada venda, mesmo sem Pixel.
+Atribuição UTM e IDs de clique permitidos são preservados; parâmetros pessoais e arbitrários são descartados. Respostas do checklist não são transmitidas nem persistidas.
 
-## Publicação — já no ar
+## Publicação e retorno
 
-Site: **https://www.nochesencalma.online** · repositório `DD777-DD/noches-en-calma` conectado à Vercel.
-Todo `git push` na branch `main` publica automaticamente. Não há build: os arquivos vão como estão.
+Push em main inicia publicação automática na Vercel. Antes de alterar preço ou garantia, conferir a configuração real e atualizar a copy e os valores dos eventos em app.js.
 
-```bash
-git add -A && git commit -m "mensagem" && git push
-```
+Ponto anterior à reestruturação: commit 8e771bcb83f08971948e81672cc10d98513379c9; deployment dpl_GT8Lr8gJ6vMhrCPWdnQizeXvz2KN. Para retorno, usar o deployment anterior na Vercel ou reverter o commit de publicação sem reescrever o histórico.
 
-DNS na Hostinger: `A @ -> 216.198.79.1` e `CNAME www -> <valor único do projeto>.vercel-dns-017.com`
-(os antigos `76.76.21.21` e `cname.vercel-dns.com` continuam funcionando).
+## Rotas dos ativos
 
-O apex redireciona 308 para o www. Para inverter, troque o domínio principal em Vercel → Settings → Domains.
-
-## Antes de comprar tráfego
-
-1. Testar a entrega: comprar, receber o e-mail e abrir os arquivos como aluno no Hotmart Club.
-2. Criar o Pixel no Gerenciador de Eventos e colar o ID em `window.NEC.metaPixelId`.
-3. Ligar a integração Hotmart -> Meta para a compra aprovada voltar como evento.
-4. Definir o orçamento diário.
+Esta publicação foi enviada em um único lote pela interface autenticada do GitHub.
+Os arquivos físicos da revisão estão na raiz: ritual-*.webp, sistema-*.webp, calma-favicon.svg e Ritual_CALMA_de_12_Minutos.pdf.
+Os rewrites em vercel.json mantêm os endereços públicos /assets/ritual/*, /assets/sistema/*, /assets/favicon.svg e /descargas/Ritual_CALMA_de_12_Minutos.pdf usados pela página.
+Ao atualizar um ativo, substituir seu arquivo físico correspondente. Não remover os rewrites sem atualizar as referências.
+Os diretórios assets/ads e creativos existentes continuam preservados.
