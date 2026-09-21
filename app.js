@@ -23,7 +23,7 @@
     link.href=url.toString(); link.rel='noopener';
     link.addEventListener('click',()=>{
       track('CheckoutClick',{placement:link.dataset.placement});
-      if(production && preference==='yes' && window.fbq) window.fbq('track','InitiateCheckout',{content_name:'Noches en Calma',content_type:'product',content_ids:['noches-en-calma'],value:190.81,currency:'MXN'});
+      if(production && preference==='yes' && window.fbq) window.fbq('track','InitiateCheckout',{content_name:'Noches en Calma',content_type:'product',content_ids:['noches-en-calma'],value:56.84,currency:'MXN'});
     });
   });
   let preference='no';
@@ -172,7 +172,7 @@
   const hashTarget=document.getElementById(location.hash.slice(1));if(hashTarget?.tagName==='DETAILS'){hashTarget.open=true;const parent=hashTarget.parentElement.closest('details');if(parent)parent.open=true;}
   if('IntersectionObserver' in window){
     let viewed=false;
-    new IntersectionObserver(entries=>{if(entries[0].isIntersecting && !viewed){viewed=true;track('OfferView',{currency:'MXN',value:190.81});if(production && preference==='yes' && window.fbq)window.fbq('track','ViewContent',{content_name:'Noches en Calma',content_type:'product',content_ids:['noches-en-calma'],currency:'MXN',value:190.81});}},{threshold:.25}).observe(document.getElementById('oferta'));
+    new IntersectionObserver(entries=>{if(entries[0].isIntersecting && !viewed){viewed=true;track('OfferView',{currency:'MXN',value:56.84});if(production && preference==='yes' && window.fbq)window.fbq('track','ViewContent',{content_name:'Noches en Calma',content_type:'product',content_ids:['noches-en-calma'],currency:'MXN',value:56.84});}},{threshold:.25}).observe(document.getElementById('oferta'));
   }
   setPage(1,false);
 })();

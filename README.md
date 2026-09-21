@@ -17,7 +17,7 @@ Repositório DD777-DD/noches-en-calma, branch main, conectado à Vercel. Sem bui
 
 ## Oferta e entrega
 
-Checkout https://pay.hotmart.com/V107472709O, oferta base. Total México MX$190.81, IVA incluído (164.49 + 26.32). Preço anterior MX$249 informado pelo produtor. Garantia de 15 dias conferida no checkout. Sem prazo de promoção inventado.
+Checkout https://pay.hotmart.com/V107472709O, oferta base. Total México MX$56.84, IVA incluído (49.00 + 7.84). Preço anterior MX$249 informado pelo produtor. Garantia de 15 dias conferida no checkout. Sem prazo de promoção inventado.
 
 Ritual gratuito sem compra ou cadastro. Leitor de nove páginas em texto e imagem; download original com verificação de tipo, tamanho e assinatura PDF. Não há formulário de e-mail.
 
