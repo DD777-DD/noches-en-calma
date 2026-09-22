@@ -176,3 +176,13 @@
   }
   setPage(1,false);
 })();
+
+(() => {
+  const film=document.querySelector('.sales-video'), button=document.getElementById('play-film'), error=document.getElementById('film-error');
+  if(!film || !button) return;
+  button.hidden=false;film.controls=false;
+  const revealControls=()=>{button.hidden=true;film.controls=true;};
+  button.addEventListener('click',async()=>{revealControls();film.focus();try{await film.play();}catch{error.hidden=false;}});
+  film.addEventListener('play',()=>{revealControls();error.hidden=true;});
+  film.addEventListener('error',()=>{revealControls();error.hidden=false;});
+})();
