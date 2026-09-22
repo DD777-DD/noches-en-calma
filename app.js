@@ -182,7 +182,10 @@
   if(!film || !button) return;
   button.hidden=false;film.controls=false;
   const revealControls=()=>{button.hidden=true;film.controls=true;};
-  button.addEventListener('click',async()=>{revealControls();film.focus();try{await film.play();}catch{error.hidden=false;}});
+  const showError=()=>{revealControls();error.hidden=false;};
+  button.addEventListener('click',async()=>{revealControls();film.focus();try{await film.play();}catch{showError();}});
   film.addEventListener('play',()=>{revealControls();error.hidden=true;});
-  film.addEventListener('error',()=>{revealControls();error.hidden=false;});
+  // A failed <source> dispatches a non-bubbling error; capture it as well.
+  film.addEventListener('error',showError,true);
+  if(film.error || film.networkState===HTMLMediaElement.NETWORK_NO_SOURCE) showError();
 })();
