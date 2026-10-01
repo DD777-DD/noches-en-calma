@@ -3,7 +3,7 @@
   const pdfPath = 'descargas/Ritual_CALMA_de_12_Minutos.pdf';
   const pdfName = 'Ritual_CALMA_de_12_Minutos.pdf';
   const originalCheckout = 'https://pay.hotmart.com/V107472709O';
-  const pixel = '2147764496116257';
+  const pixels = ['2147764496116257', '1092062353404089'];
   const production = ['www.nochesencalma.online','nochesencalma.online'].includes(location.hostname);
   const qs = new URLSearchParams(location.search);
   const safeAttribution = new URLSearchParams();
@@ -39,7 +39,9 @@
     const q=function(){ q.callMethod?q.callMethod.apply(q,arguments):q.queue.push(arguments); };
     q.queue=[];q.loaded=true;q.version='2.0';window.fbq=q;window._fbq=q;
     const s=document.createElement('script');s.async=true;s.src='https://connect.facebook.net/en_US/fbevents.js';document.head.append(s);
-    q('set','autoConfig',false,pixel);q('consent','grant');q('init',pixel);q('track','PageView');pixelLoaded=true;
+    q('consent','grant');
+    pixels.forEach(pixel=>{q('set','autoConfig',false,pixel);q('init',pixel);});
+    q('track','PageView');pixelLoaded=true;
   }
   function privacyLabel() {
     document.getElementById('privacy-status').textContent=preference==='yes'?'Medición publicitaria aceptada. Puedes revocarla aquí cuando quieras.':'Medición publicitaria desactivada. El Ritual sigue disponible.';
