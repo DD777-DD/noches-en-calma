@@ -55,6 +55,7 @@
   document.getElementById('reject-tracking').addEventListener('click',()=>setPreference('no'));
   privacyLabel();startMeasurement();
 
+  const totalPages=window.RITUAL_PAGES?.length||10;
   let currentPage=1,mode='text',opened=false;
   const select=document.getElementById('page-select');
   const readerBody=document.getElementById('reader-body');
@@ -62,22 +63,22 @@
   const pageImage=document.getElementById('page-image');
   const imageError=document.getElementById('image-error');
   function setPage(number,fromNavigation=true) {
-    currentPage=Math.max(1,Math.min(9,Number(number)||1));
+    currentPage=Math.max(1,Math.min(totalPages,Number(number)||1));
     select.value=String(currentPage);
-    document.querySelector('.page-count').textContent=currentPage+' de 9';
-    document.getElementById('reader-progress').style.width=(currentPage/9*100)+'%';
+    document.querySelector('.page-count').textContent=currentPage+' de '+totalPages;
+    document.getElementById('reader-progress').style.width=(currentPage/totalPages*100)+'%';
     document.getElementById('previous-page').disabled=currentPage===1;
-    document.getElementById('next-page').disabled=currentPage===9;
+    document.getElementById('next-page').disabled=currentPage===totalPages;
     if(window.RITUAL_PAGES?.[currentPage-1]) text.innerHTML=window.RITUAL_PAGES[currentPage-1];
     else text.innerHTML='<h3>La lectura no se pudo cargar.</h3><p>Puedes usar Página original o abrir el PDF completo con el enlace de abajo.</p>';
-    pageImage.alt='Página '+currentPage+' de 9 del Ritual CALMA: '+select.selectedOptions[0].textContent.split('·')[1].trim();
+    pageImage.alt='Página '+currentPage+' de '+totalPages+' del Ritual CALMA: '+select.selectedOptions[0].textContent.split('·')[1].trim();
     imageError.hidden=true;
     if(mode==='original') loadOriginal();
     readerBody.scrollTop=0;
     if(fromNavigation) track('RitualPreviewPage',{page:currentPage});
   }
   function loadOriginal() {
-    pageImage.src='assets/ritual/pagina-'+currentPage+'.webp';
+    pageImage.src='assets/ritual/pagina-'+currentPage+'.webp?v=20261008';
     pageImage.hidden=false;
   }
   function setMode(value) {
@@ -88,7 +89,7 @@
     readerBody.scrollTop=0;
   }
   pageImage.addEventListener('error',()=>{if(mode==='original'){pageImage.hidden=true;imageError.hidden=false;}});
-  document.getElementById('retry-image').addEventListener('click',()=>{imageError.hidden=true;pageImage.hidden=false;pageImage.src='assets/ritual/pagina-'+currentPage+'.webp?retry='+Date.now();});
+  document.getElementById('retry-image').addEventListener('click',()=>{imageError.hidden=true;pageImage.hidden=false;pageImage.src='assets/ritual/pagina-'+currentPage+'.webp?v=20261008&retry='+Date.now();});
   select.addEventListener('change',()=>setPage(select.value));
   document.getElementById('previous-page').addEventListener('click',()=>setPage(currentPage-1));
   document.getElementById('next-page').addEventListener('click',()=>setPage(currentPage+1));
@@ -127,7 +128,7 @@
       const response=await fetch(pdfPath,{signal:controller.signal,credentials:'same-origin'});
       if(!response.ok || !response.headers.get('content-type')?.includes('application/pdf')) throw Error('pdf-unavailable');
       const blob=await response.blob();
-      if(blob.size!==117884 || await blob.slice(0,5).text()!=='%PDF-') throw Error('pdf-invalid');
+      if(blob.size!==108025 || await blob.slice(0,5).text()!=='%PDF-') throw Error('pdf-invalid');
       const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=pdfName;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);
       status.textContent='El archivo llegó a tu navegador. Si no se guardó, abre el PDF y usa la opción Guardar o Compartir.';
       // Confirms the file response was received, never that the user saved it to disk.
@@ -150,7 +151,7 @@
   const dialog=document.getElementById('sample-dialog');let trigger=null;
   document.querySelectorAll('[data-sample]').forEach(button=>button.addEventListener('click',()=>{
     trigger=button;const n=button.dataset.sample;
-    document.getElementById('sample-image').src='assets/sistema/pagina-'+n+'.webp';
+    document.getElementById('sample-image').src='assets/sistema/pagina-'+n+'.webp?v=20261008';
     document.getElementById('sample-image').alt=button.querySelector('img').alt;
     document.getElementById('sample-title').textContent='Noches en Calma · Página '+n;
     document.getElementById('sample-transcript').textContent=window.SISTEMA_PAGES?.[n]||'No se pudo cargar el texto. Puedes consultar la página original.';
@@ -177,17 +178,4 @@
     new IntersectionObserver(entries=>{if(entries[0].isIntersecting && !viewed){viewed=true;track('OfferView',{currency:'MXN',value:58.00});if(production && preference==='yes' && window.fbq)window.fbq('track','ViewContent',{content_name:'Noches en Calma',content_type:'product',content_ids:['noches-en-calma'],currency:'MXN',value:58.00});}},{threshold:.25}).observe(document.getElementById('oferta'));
   }
   setPage(1,false);
-})();
-
-(() => {
-  const film=document.querySelector('.sales-video'), button=document.getElementById('play-film'), error=document.getElementById('film-error');
-  if(!film || !button) return;
-  button.hidden=false;film.controls=false;
-  const revealControls=()=>{button.hidden=true;film.controls=true;};
-  const showError=()=>{revealControls();error.hidden=false;};
-  button.addEventListener('click',async()=>{revealControls();film.focus();try{await film.play();}catch{showError();}});
-  film.addEventListener('play',()=>{revealControls();error.hidden=true;});
-  // A failed <source> dispatches a non-bubbling error; capture it as well.
-  film.addEventListener('error',showError,true);
-  if(film.error || film.networkState===HTMLMediaElement.NETWORK_NO_SOURCE) showError();
 })();

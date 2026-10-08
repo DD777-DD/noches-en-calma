@@ -114,16 +114,36 @@
       "destination": "/ritual-pagina-9.webp"
     },
     {
+      "source": "/assets/ritual/pagina-10.webp",
+      "destination": "/ritual-pagina-10.webp"
+    },
+    {
       "source": "/assets/ritual/portada.webp",
       "destination": "/ritual-portada.webp"
+    },
+    {
+      "source": "/assets/sistema/portada.webp",
+      "destination": "/sistema-portada.webp"
+    },
+    {
+      "source": "/assets/sistema/pagina-6.webp",
+      "destination": "/sistema-pagina-6.webp"
     },
     {
       "source": "/assets/sistema/pagina-10.webp",
       "destination": "/sistema-pagina-10.webp"
     },
     {
+      "source": "/assets/sistema/pagina-12.webp",
+      "destination": "/sistema-pagina-12.webp"
+    },
+    {
       "source": "/assets/sistema/pagina-17.webp",
       "destination": "/sistema-pagina-17.webp"
+    },
+    {
+      "source": "/assets/sistema/pagina-22.webp",
+      "destination": "/sistema-pagina-22.webp"
     },
     {
       "source": "/assets/sistema/pagina-3.webp",

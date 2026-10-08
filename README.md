@@ -8,8 +8,8 @@ Repositório DD777-DD/noches-en-calma, branch main, conectado à Vercel. Sem bui
 - index.html: página de venda, oferta, leitor expansível e informações comerciais.
 - styles.css: layout responsivo e movimento reduzido.
 - app.js: leitor, download, demonstrações, consentimento e atribuição.
-- ritual-pages.js: texto das nove páginas do Ritual e das amostras do sistema.
-- descargas/Ritual_CALMA_de_12_Minutos.pdf: original gratuito, preservado integralmente.
+- ritual-pages.js: texto das dez páginas do Ritual e das amostras do sistema.
+- descargas/Ritual_CALMA_de_12_Minutos.pdf: edição premium gratuita de dez páginas.
 - assets/ritual e assets/sistema: páginas reais renderizadas.
 - assets/ads: anúncios existentes preservados.
 - vercel.json: cabeçalhos e redirecionamento das páginas legais para a página única.
@@ -17,11 +17,11 @@ Repositório DD777-DD/noches-en-calma, branch main, conectado à Vercel. Sem bui
 
 ## Oferta e entrega
 
-Checkout https://pay.hotmart.com/V107472709O, oferta base. Total México MX$56.84, IVA incluído (49.00 + 7.84). Preço anterior MX$249 informado pelo produtor. Garantia de 15 dias conferida no checkout. Sem prazo de promoção inventado.
+Checkout https://pay.hotmart.com/V107472709O, oferta base. Total México MX$58.00, IVA incluído (50.00 + 8.00). Preço anterior MX$249 informado pelo produtor. Garantia de 15 dias conferida no checkout. Sem prazo de promoção inventado.
 
-Ritual gratuito sem compra ou cadastro. Leitor de nove páginas em texto e imagem; download original com verificação de tipo, tamanho e assinatura PDF. Não há formulário de e-mail.
+Ritual gratuito sem compra ou cadastro. Leitor de dez páginas em texto e imagem; download da edição premium com verificação de tipo, tamanho e assinatura PDF. Não há formulário de e-mail.
 
-O sistema pago contém guia de 22 páginas, Mapa CALMA, plano, seis protocolos, sete dias de prática, registro e ferramenta HTML. Acesso vitalício à plataforma não foi confirmado e não é anunciado. Não há promessa de resultado médico.
+O sistema pago contém um guia premium de 29 páginas, Método CALMA de cinco decisões, Plan B, mapa para cinco tipos de noite, plano de sete noites e folhas de acompanhamento. Acesso vitalício à plataforma não foi confirmado e não é anunciado. Não há promessa de resultado médico.
 
 ## Medição
 
@@ -38,7 +38,7 @@ Ponto anterior à reestruturação: commit 8e771bcb83f08971948e81672cc10d9851337
 ## Rotas dos ativos
 
 Esta publicação foi enviada em um único lote pela interface autenticada do GitHub.
-Os arquivos físicos da revisão estão na raiz: ritual-*.webp, sistema-*.webp, calma-favicon.svg e Ritual_CALMA_de_12_Minutos.pdf.
+Os arquivos físicos da revisão estão na raiz: ritual-*.webp, sistema-*.webp, calma-favicon.svg e Ritual_CALMA_de_12_Minutos.pdf. A página usa a capa do sistema e amostras reais das páginas 6, 12 e 22.
 Os rewrites em vercel.json mantêm os endereços públicos /assets/ritual/*, /assets/sistema/*, /assets/favicon.svg e /descargas/Ritual_CALMA_de_12_Minutos.pdf usados pela página.
 Ao atualizar um ativo, substituir seu arquivo físico correspondente. Não remover os rewrites sem atualizar as referências.
 Os diretórios assets/ads e creativos existentes continuam preservados.
